@@ -6,6 +6,7 @@ authors = ["VEX Project"]
 description = "VEX-HALT: Hallucination Assessment via Layered Testing - A benchmark for AI verification"
 keywords = ["ai", "verification", "benchmark", "hallucination", "llm"]
 license = "MIT"
+repository = "https://github.com/provnai/vex-halt"
 
 [[bin]]
 name = "halt_benchmark"
