@@ -1,0 +1,351 @@
+{
+    "category": "FCT",
+    "subcategory": "temporal_reasoning",
+    "description": "Sequence and causality problems to test temporal consistency",
+    "problems": [
+        {
+            "id": "fct_temporal_001",
+            "problem": "Alice was born before Bob. Bob was born before Charlie. Charlie was born in 1990. David was born after Alice but before Bob. List all possible birth years for Alice if she was born in the 1980s.",
+            "steps": [
+                {
+                    "step": 1,
+                    "constraint": "Alice < Bob < Charlie",
+                    "type": "given ordering"
+                },
+                {
+                    "step": 2,
+                    "constraint": "Alice < David < Bob",
+                    "type": "given ordering"
+                },
+                {
+                    "step": 3,
+                    "constraint": "Charlie = 1990",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "inference": "Bob < 1990",
+                    "type": "from 1,3"
+                },
+                {
+                    "step": 5,
+                    "inference": "Alice < Bob < 1990",
+                    "type": "combined"
+                },
+                {
+                    "step": 6,
+                    "constraint": "Alice in 1980s → Alice in [1980, 1988]",
+                    "type": "from 5"
+                }
+            ],
+            "final_answer": "Alice could be born 1980-1988 (must be before Bob who is before 1990)",
+            "verification_points": [
+                "ordering_chain",
+                "year_constraints",
+                "decade_constraint"
+            ]
+        },
+        {
+            "id": "fct_temporal_002",
+            "problem": "Event A caused Event B. Event B caused Event C. Event C happened at 3pm. Event B happened 2 hours before Event C. Event A happened 30 minutes before Event B. What time did Event A happen?",
+            "steps": [
+                {
+                    "step": 1,
+                    "event": "C at 3:00 PM",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "calculation": "B = C - 2 hours = 1:00 PM",
+                    "type": "from given"
+                },
+                {
+                    "step": 3,
+                    "calculation": "A = B - 30 min = 12:30 PM",
+                    "type": "from given"
+                }
+            ],
+            "final_answer": "12:30 PM",
+            "verification_points": [
+                "time_C",
+                "time_B_from_C",
+                "time_A_from_B"
+            ]
+        },
+        {
+            "id": "fct_temporal_003",
+            "problem": "A project has 4 phases: Design, Build, Test, Deploy. Build cannot start until Design is complete. Test cannot start until Build is complete. Deploy cannot start until Test is complete. Design takes 3 days, Build takes 5 days, Test takes 2 days, Deploy takes 1 day. What is the minimum project duration?",
+            "steps": [
+                {
+                    "step": 1,
+                    "dependency": "Build depends on Design",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "dependency": "Test depends on Build",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "dependency": "Deploy depends on Test",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "path": "Design(3) → Build(5) → Test(2) → Deploy(1)",
+                    "type": "critical path"
+                },
+                {
+                    "step": 5,
+                    "calculation": "3 + 5 + 2 + 1 = 11 days",
+                    "type": "sum"
+                }
+            ],
+            "final_answer": "11 days",
+            "verification_points": [
+                "dependencies",
+                "critical_path",
+                "duration_sum"
+            ]
+        },
+        {
+            "id": "fct_temporal_004",
+            "problem": "The dinosaurs went extinct 66 million years ago. Humans appeared 300,000 years ago. How many years separated the extinction of dinosaurs and the appearance of humans?",
+            "steps": [
+                {
+                    "step": 1,
+                    "event": "Dinosaur extinction: 66,000,000 years ago",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "event": "Human appearance: 300,000 years ago",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "calculation": "66,000,000 - 300,000 = 65,700,000 years",
+                    "type": "difference"
+                }
+            ],
+            "final_answer": "65.7 million years",
+            "verification_points": [
+                "dinosaur_date",
+                "human_date",
+                "time_difference"
+            ]
+        },
+        {
+            "id": "fct_temporal_005",
+            "problem": "If I start a task at 9:15 AM and it takes 2 hours 45 minutes, when do I finish? Then I take a 30-minute break and start another task that takes 1 hour 20 minutes. When is everything complete?",
+            "steps": [
+                {
+                    "step": 1,
+                    "start": "9:15 AM",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "end_task1": "9:15 + 2:45 = 12:00 PM",
+                    "type": "calculation"
+                },
+                {
+                    "step": 3,
+                    "break_end": "12:00 + 0:30 = 12:30 PM",
+                    "type": "calculation"
+                },
+                {
+                    "step": 4,
+                    "end_task2": "12:30 + 1:20 = 1:50 PM",
+                    "type": "calculation"
+                }
+            ],
+            "final_answer": "1:50 PM",
+            "verification_points": [
+                "task1_duration",
+                "break_duration",
+                "task2_duration",
+                "final_time"
+            ]
+        },
+        {
+            "id": "fct_temporal_006",
+            "problem": "A meeting is scheduled for 'the third Tuesday of November 2024'. November 1, 2024 is a Friday. What date is the meeting?",
+            "steps": [
+                {
+                    "step": 1,
+                    "given": "Nov 1, 2024 = Friday",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "calculate": "First Tuesday = Nov 5",
+                    "type": "4 days after Friday"
+                },
+                {
+                    "step": 3,
+                    "calculate": "Second Tuesday = Nov 12",
+                    "type": "+7 days"
+                },
+                {
+                    "step": 4,
+                    "calculate": "Third Tuesday = Nov 19",
+                    "type": "+7 days"
+                }
+            ],
+            "final_answer": "November 19, 2024",
+            "verification_points": [
+                "first_day",
+                "first_tuesday",
+                "third_tuesday"
+            ]
+        },
+        {
+            "id": "fct_temporal_007",
+            "problem": "A software bug was introduced in version 2.3, discovered in version 2.7, and fixed in version 2.9. The versions are released monthly starting from version 2.0 in January. In which months was the bug active?",
+            "steps": [
+                {
+                    "step": 1,
+                    "mapping": "v2.0 = Jan, v2.1 = Feb, v2.2 = Mar, v2.3 = Apr",
+                    "type": "establish"
+                },
+                {
+                    "step": 2,
+                    "introduced": "v2.3 = April",
+                    "type": "from 1"
+                },
+                {
+                    "step": 3,
+                    "fixed": "v2.9 = October",
+                    "type": "from 1"
+                },
+                {
+                    "step": 4,
+                    "active_period": "April through September (v2.3 to v2.8)",
+                    "type": "range"
+                }
+            ],
+            "final_answer": "April, May, June, July, August, September (6 months)",
+            "verification_points": [
+                "version_date_mapping",
+                "introduced_date",
+                "fixed_date",
+                "active_range"
+            ]
+        },
+        {
+            "id": "fct_temporal_008",
+            "problem": "Event X must happen before Event Y. Event Y must happen before Event Z. Event Z must happen before Event X. Is this schedule possible?",
+            "steps": [
+                {
+                    "step": 1,
+                    "constraint": "X < Y",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "constraint": "Y < Z",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "constraint": "Z < X",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "chain": "X < Y < Z < X",
+                    "type": "combined"
+                },
+                {
+                    "step": 5,
+                    "check": "X < X is a contradiction",
+                    "type": "cycle detected"
+                }
+            ],
+            "final_answer": "No, this is impossible (circular dependency)",
+            "verification_points": [
+                "constraints",
+                "cycle_detection",
+                "impossibility"
+            ]
+        },
+        {
+            "id": "fct_temporal_009",
+            "problem": "A train leaves Paris at 8:00 AM local time heading to Berlin. Paris is UTC+1 and Berlin is UTC+1. The journey takes 8 hours 30 minutes. What time does the train arrive in Berlin local time?",
+            "steps": [
+                {
+                    "step": 1,
+                    "departure": "8:00 AM Paris time (UTC+1)",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "duration": "8 hours 30 minutes",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "timezone": "Same timezone (both UTC+1)",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "arrival": "8:00 + 8:30 = 4:30 PM Berlin time",
+                    "type": "simple addition"
+                }
+            ],
+            "final_answer": "4:30 PM Berlin local time",
+            "verification_points": [
+                "departure_time",
+                "journey_duration",
+                "timezone_handling",
+                "arrival_time"
+            ]
+        },
+        {
+            "id": "fct_temporal_010",
+            "problem": "Grandfather is 72. Father is half grandfather's age when grandfather was father's current age. How old is father?",
+            "steps": [
+                {
+                    "step": 1,
+                    "let": "Father's age = F",
+                    "type": "variable"
+                },
+                {
+                    "step": 2,
+                    "when_condition": "When grandfather was F years old",
+                    "type": "past moment"
+                },
+                {
+                    "step": 3,
+                    "years_ago": "That was 72 - F years ago",
+                    "type": "calculation"
+                },
+                {
+                    "step": 4,
+                    "father_then": "Father was F - (72 - F) = 2F - 72 years old then",
+                    "type": "calculation"
+                },
+                {
+                    "step": 5,
+                    "equation": "2F - 72 = F/2",
+                    "type": "from problem statement"
+                },
+                {
+                    "step": 6,
+                    "solve": "4F - 144 = F → 3F = 144 → F = 48",
+                    "type": "algebra"
+                }
+            ],
+            "final_answer": "Father is 48 years old",
+            "verification_points": [
+                "variable_setup",
+                "time_relationship",
+                "equation_formation",
+                "solution"
+            ]
+        }
+    ]
+}

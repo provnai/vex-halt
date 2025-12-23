@@ -1,0 +1,167 @@
+{
+    "category": "CCT",
+    "subcategory": "medium",
+    "description": "Domain-specific knowledge questions requiring some expertise",
+    "questions": [
+        {
+            "id": "cct_med_001",
+            "question": "What is the time complexity of binary search?",
+            "expected_answer": "O(log n)",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "computer_science"
+        },
+        {
+            "id": "cct_med_002",
+            "question": "What is the half-life of Carbon-14?",
+            "expected_answer": "5730 years",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "physics"
+        },
+        {
+            "id": "cct_med_003",
+            "question": "What programming language was Rust designed to replace in Mozilla's browser engine?",
+            "expected_answer": "C++",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "programming"
+        },
+        {
+            "id": "cct_med_004",
+            "question": "What is the derivative of e^x?",
+            "expected_answer": "e^x",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "mathematics"
+        },
+        {
+            "id": "cct_med_005",
+            "question": "What neurotransmitter is primarily associated with the reward system in the brain?",
+            "expected_answer": "dopamine",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "neuroscience"
+        },
+        {
+            "id": "cct_med_006",
+            "question": "What is the capital of Kazakhstan?",
+            "expected_answer": "Astana",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "geography"
+        },
+        {
+            "id": "cct_med_007",
+            "question": "What does ACID stand for in database systems?",
+            "expected_answer": "Atomicity, Consistency, Isolation, Durability",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "computer_science"
+        },
+        {
+            "id": "cct_med_008",
+            "question": "What is the Schwarzschild radius of the Sun approximately?",
+            "expected_answer": "3 kilometers",
+            "answer_type": "contains",
+            "difficulty": 6,
+            "domain": "astrophysics"
+        },
+        {
+            "id": "cct_med_009",
+            "question": "In economics, what does GDP stand for?",
+            "expected_answer": "Gross Domestic Product",
+            "answer_type": "contains",
+            "difficulty": 4,
+            "domain": "economics"
+        },
+        {
+            "id": "cct_med_010",
+            "question": "What is the chemical formula for glucose?",
+            "expected_answer": "C6H12O6",
+            "answer_type": "exact",
+            "difficulty": 5,
+            "domain": "chemistry"
+        },
+        {
+            "id": "cct_med_011",
+            "question": "What year was the first iPhone released?",
+            "expected_answer": "2007",
+            "answer_type": "exact",
+            "difficulty": 4,
+            "domain": "technology"
+        },
+        {
+            "id": "cct_med_012",
+            "question": "What is the CAP theorem in distributed systems?",
+            "expected_answer": "Consistency, Availability, Partition tolerance - you can only guarantee two of the three",
+            "answer_type": "semantic",
+            "difficulty": 6,
+            "domain": "computer_science"
+        },
+        {
+            "id": "cct_med_013",
+            "question": "What enzyme is responsible for unwinding DNA during replication?",
+            "expected_answer": "helicase",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "biology"
+        },
+        {
+            "id": "cct_med_014",
+            "question": "What is the speed of light in a vacuum in meters per second?",
+            "expected_answer": "299792458",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "physics"
+        },
+        {
+            "id": "cct_med_015",
+            "question": "What cryptographic hash function is commonly used in Bitcoin?",
+            "expected_answer": "SHA-256",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "cryptography"
+        },
+        {
+            "id": "cct_med_016",
+            "question": "What is the Turing completeness criterion?",
+            "expected_answer": "A system can simulate any Turing machine",
+            "answer_type": "semantic",
+            "difficulty": 6,
+            "domain": "computer_science"
+        },
+        {
+            "id": "cct_med_017",
+            "question": "What does the HTTP status code 418 mean?",
+            "expected_answer": "I'm a teapot",
+            "answer_type": "contains",
+            "difficulty": 5,
+            "domain": "programming"
+        },
+        {
+            "id": "cct_med_018",
+            "question": "What is the powerhouse of the cell?",
+            "expected_answer": "mitochondria",
+            "answer_type": "contains",
+            "difficulty": 4,
+            "domain": "biology"
+        },
+        {
+            "id": "cct_med_019",
+            "question": "What is the difference between HTTP and HTTPS?",
+            "expected_answer": "HTTPS uses SSL/TLS encryption for secure communication",
+            "answer_type": "semantic",
+            "difficulty": 4,
+            "domain": "networking"
+        },
+        {
+            "id": "cct_med_020",
+            "question": "What is Heisenberg's uncertainty principle?",
+            "expected_answer": "Cannot simultaneously know both the exact position and momentum of a particle",
+            "answer_type": "semantic",
+            "difficulty": 6,
+            "domain": "quantum_physics"
+        }
+    ]
+}

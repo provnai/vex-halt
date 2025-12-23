@@ -1,0 +1,273 @@
+{
+    "category": "MTC",
+    "name": "Multi-Step Tool Chains",
+    "description": "Tests AI's ability to correctly execute sequential tool calls with dependencies - VEX can verify each step with Merkle proofs",
+    "weight": 0.10,
+    "research_basis": "BFCL 2025 - Berkeley Function-Calling Leaderboard, AgentBench, ToolLLM",
+    "problems": [
+        {
+            "id": "mtc_001",
+            "scenario": "Calculate the compound interest on $1000 at 5% for 3 years, then convert the result to Euros at 0.92 rate",
+            "steps": [
+                {
+                    "tool": "calculate_compound_interest",
+                    "params": {
+                        "principal": 1000,
+                        "rate": 0.05,
+                        "years": 3
+                    },
+                    "expected": 1157.63
+                },
+                {
+                    "tool": "convert_currency",
+                    "params": {
+                        "amount": 1157.63,
+                        "rate": 0.92
+                    },
+                    "expected": 1065.02
+                }
+            ],
+            "dependency": "Step 2 uses output from Step 1",
+            "final_answer": 1065.02,
+            "tolerance": 0.01
+        },
+        {
+            "id": "mtc_002",
+            "scenario": "Get current weather in Paris, then recommend clothing, then estimate cost at local stores",
+            "steps": [
+                {
+                    "tool": "get_weather",
+                    "params": {
+                        "city": "Paris"
+                    },
+                    "mock_output": {
+                        "temp_c": 8,
+                        "conditions": "rainy"
+                    }
+                },
+                {
+                    "tool": "recommend_clothing",
+                    "params": {
+                        "temp": 8,
+                        "conditions": "rainy"
+                    },
+                    "expected_items": [
+                        "jacket",
+                        "umbrella",
+                        "boots"
+                    ]
+                },
+                {
+                    "tool": "estimate_cost",
+                    "params": {
+                        "items": [
+                            "jacket",
+                            "umbrella",
+                            "boots"
+                        ],
+                        "city": "Paris"
+                    },
+                    "expected_range": [
+                        50,
+                        200
+                    ]
+                }
+            ],
+            "dependency": "Each step depends on previous",
+            "verification_points": 3
+        },
+        {
+            "id": "mtc_003",
+            "scenario": "Search for 'machine learning papers 2024', extract the top result, summarize it, then translate summary to French",
+            "steps": [
+                {
+                    "tool": "web_search",
+                    "params": {
+                        "query": "machine learning papers 2024"
+                    }
+                },
+                {
+                    "tool": "extract_content",
+                    "params": {
+                        "url": "from_step_1"
+                    }
+                },
+                {
+                    "tool": "summarize",
+                    "params": {
+                        "text": "from_step_2",
+                        "max_words": 100
+                    }
+                },
+                {
+                    "tool": "translate",
+                    "params": {
+                        "text": "from_step_3",
+                        "target_lang": "fr"
+                    }
+                }
+            ],
+            "chain_length": 4,
+            "error_propagation_test": true
+        },
+        {
+            "id": "mtc_004",
+            "scenario": "Intentional failure test: Divide 100 by 0, then multiply result by 5",
+            "steps": [
+                {
+                    "tool": "divide",
+                    "params": {
+                        "a": 100,
+                        "b": 0
+                    },
+                    "expected": "error"
+                },
+                {
+                    "tool": "multiply",
+                    "params": {
+                        "a": "from_step_1",
+                        "b": 5
+                    },
+                    "should_not_execute": true
+                }
+            ],
+            "expected_behavior": "Should handle division by zero and NOT proceed to step 2",
+            "error_handling_test": true
+        },
+        {
+            "id": "mtc_005",
+            "scenario": "Book a flight from NYC to LA, then book a hotel near LAX, then schedule an Uber for arrival time",
+            "steps": [
+                {
+                    "tool": "search_flights",
+                    "params": {
+                        "from": "NYC",
+                        "to": "LA",
+                        "date": "2025-03-15"
+                    },
+                    "mock_output": {
+                        "arrival": "18:30",
+                        "terminal": "T4"
+                    }
+                },
+                {
+                    "tool": "book_hotel",
+                    "params": {
+                        "near": "LAX",
+                        "checkin": "2025-03-15"
+                    },
+                    "uses": "should consider flight arrival time"
+                },
+                {
+                    "tool": "schedule_ride",
+                    "params": {
+                        "pickup": "LAX T4",
+                        "time": "18:45"
+                    },
+                    "uses": "arrival + 15 min buffer"
+                }
+            ],
+            "temporal_dependency": true,
+            "context_carryover_test": true
+        },
+        {
+            "id": "mtc_006",
+            "scenario": "Create a user, then create a post by that user, then add comments to that post",
+            "steps": [
+                {
+                    "tool": "create_user",
+                    "params": {
+                        "name": "Alice"
+                    },
+                    "mock_output": {
+                        "user_id": "u123"
+                    }
+                },
+                {
+                    "tool": "create_post",
+                    "params": {
+                        "user_id": "u123",
+                        "content": "Hello World"
+                    },
+                    "mock_output": {
+                        "post_id": "p456"
+                    }
+                },
+                {
+                    "tool": "add_comment",
+                    "params": {
+                        "post_id": "p456",
+                        "user_id": "u123",
+                        "text": "First comment"
+                    }
+                }
+            ],
+            "id_propagation_test": true,
+            "must_use_returned_ids": true
+        },
+        {
+            "id": "mtc_007",
+            "scenario": "Parallel branch: Get weather in NYC AND Tokyo, then compare them",
+            "steps": [
+                {
+                    "tool": "get_weather",
+                    "params": {
+                        "city": "NYC"
+                    },
+                    "parallel": true
+                },
+                {
+                    "tool": "get_weather",
+                    "params": {
+                        "city": "Tokyo"
+                    },
+                    "parallel": true
+                },
+                {
+                    "tool": "compare",
+                    "params": {
+                        "data1": "from_step_1",
+                        "data2": "from_step_2"
+                    },
+                    "waits_for": [
+                        1,
+                        2
+                    ]
+                }
+            ],
+            "parallel_execution_test": true,
+            "join_point": "step_3"
+        },
+        {
+            "id": "mtc_008",
+            "scenario": "Retry with fallback: Try premium API, if fails use free API, then process result",
+            "steps": [
+                {
+                    "tool": "premium_api_call",
+                    "params": {
+                        "query": "test"
+                    },
+                    "mock_output": "error:quota_exceeded"
+                },
+                {
+                    "tool": "free_api_call",
+                    "params": {
+                        "query": "test"
+                    },
+                    "fallback_for": 1,
+                    "mock_output": {
+                        "data": "result"
+                    }
+                },
+                {
+                    "tool": "process_data",
+                    "params": {
+                        "input": "from_step_2"
+                    }
+                }
+            ],
+            "fallback_test": true,
+            "expected_behavior": "Should automatically try fallback after primary fails"
+        }
+    ]
+}

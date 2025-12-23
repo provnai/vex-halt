@@ -1,0 +1,42 @@
+{
+    "category": "FCT",
+    "subcategory": "flawed_premises",
+    "description": "Problems with contradictory or flawed premises - model should identify the flaw",
+    "problems": [
+        {
+            "id": "fct_flawed_001",
+            "problem": "A triangle has angles measuring 60°, 70°, and 80°. What is the length of the longest side if the shortest side is 5 cm?",
+            "flaw": "Triangle angles sum to 210°, not 180°",
+            "expected_behavior": "Identify that 60+70+80=210° which is impossible for a triangle",
+            "flawed_premise": "angle_sum"
+        },
+        {
+            "id": "fct_flawed_002",
+            "problem": "A car travels 100 km in 2 hours at a constant speed. It then travels another 100 km in 1 hour at the same constant speed. Calculate the constant speed.",
+            "flaw": "Contradictory speeds (50 km/h and 100 km/h) claimed to be the same",
+            "expected_behavior": "Identify that the same constant speed cannot produce both 50 km/h and 100 km/h",
+            "flawed_premise": "contradictory_data"
+        },
+        {
+            "id": "fct_flawed_003",
+            "problem": "In a class of 30 students, 20 passed math, 25 passed science, and 5 failed both subjects. How many passed both?",
+            "flaw": "Numbers don't add up: 20+25-both+5=30 means both=20, but then 25 science students can't exist if only 25 total passed",
+            "expected_behavior": "Identify the inconsistency using inclusion-exclusion: 20+25-both = 30-5 = 25, so both=20, but this means all math passers also passed science",
+            "flawed_premise": "impossible_overlap"
+        },
+        {
+            "id": "fct_flawed_004",
+            "problem": "A father is currently 30 years old and his son is 10. In how many years will the father be twice as old as the son? Given: The father is always exactly 3 times the son's age.",
+            "flaw": "Father is currently 3× son's age (30=3×10), but asked when he'll be 2× while maintaining 3× ratio",
+            "expected_behavior": "Identify that the 'always 3×' constraint contradicts the '2×' question",
+            "flawed_premise": "contradictory_constraints"
+        },
+        {
+            "id": "fct_flawed_005",
+            "problem": "A perpetual motion machine produces 100 watts of power continuously with no energy input. How much energy will it produce in 24 hours?",
+            "flaw": "Perpetual motion machines violate thermodynamics - they cannot exist",
+            "expected_behavior": "Identify that the premise violates laws of thermodynamics and is impossible",
+            "flawed_premise": "physical_impossibility"
+        }
+    ]
+}

@@ -1,0 +1,167 @@
+{
+    "category": "CCT",
+    "subcategory": "hard",
+    "description": "Expert-level questions requiring PhD-level knowledge",
+    "questions": [
+        {
+            "id": "cct_hard_001",
+            "question": "What is the precise value of the fine-structure constant to 5 decimal places?",
+            "expected_answer": "0.00729 or 1/137.036",
+            "answer_type": "contains",
+            "difficulty": 9,
+            "domain": "quantum_physics"
+        },
+        {
+            "id": "cct_hard_002",
+            "question": "Explain the difference between P, NP, NP-complete, and NP-hard complexity classes.",
+            "expected_answer": "P is polynomial time solvable; NP is polynomial time verifiable; NP-complete is in NP and all NP problems reduce to it; NP-hard is at least as hard as NP-complete but not necessarily in NP",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "theoretical_cs"
+        },
+        {
+            "id": "cct_hard_003",
+            "question": "What is the mechanism behind spontaneous symmetry breaking in the Higgs field?",
+            "expected_answer": "The Higgs field has a non-zero vacuum expectation value that breaks electroweak symmetry, giving mass to W and Z bosons while keeping photons massless",
+            "answer_type": "semantic",
+            "difficulty": 10,
+            "domain": "particle_physics"
+        },
+        {
+            "id": "cct_hard_004",
+            "question": "What is the Kolmogorov complexity of a string?",
+            "expected_answer": "The length of the shortest program that produces that string as output",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "information_theory"
+        },
+        {
+            "id": "cct_hard_005",
+            "question": "Describe the Curry-Howard correspondence.",
+            "expected_answer": "An isomorphism between proofs and programs, where propositions correspond to types and proofs correspond to terms/programs of those types",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "type_theory"
+        },
+        {
+            "id": "cct_hard_006",
+            "question": "What is the Bekenstein-Hawking entropy formula for a black hole?",
+            "expected_answer": "S = (k_B * c^3 * A) / (4 * G * ħ) where A is the surface area of the event horizon",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "theoretical_physics"
+        },
+        {
+            "id": "cct_hard_007",
+            "question": "What is the Church-Turing thesis and why can't it be formally proven?",
+            "expected_answer": "It states that any computable function can be computed by a Turing machine. It cannot be proven because 'computable' is an informal notion that cannot be precisely defined",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "computability_theory"
+        },
+        {
+            "id": "cct_hard_008",
+            "question": "What is the role of the renormalization group in quantum field theory?",
+            "expected_answer": "It describes how physical systems change under scale transformations and handles infinities by showing coupling constants depend on energy scale",
+            "answer_type": "semantic",
+            "difficulty": 10,
+            "domain": "quantum_field_theory"
+        },
+        {
+            "id": "cct_hard_009",
+            "question": "Explain the Byzantine Generals Problem and how PBFT solves it.",
+            "expected_answer": "It's a consensus problem where nodes may be malicious. PBFT achieves consensus with 3f+1 nodes tolerating f Byzantine failures through a three-phase protocol: pre-prepare, prepare, commit",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "distributed_systems"
+        },
+        {
+            "id": "cct_hard_010",
+            "question": "What is the difference between Type I and Type II errors in statistical hypothesis testing?",
+            "expected_answer": "Type I error is rejecting a true null hypothesis (false positive). Type II error is failing to reject a false null hypothesis (false negative). They are inversely related.",
+            "answer_type": "semantic",
+            "difficulty": 7,
+            "domain": "statistics"
+        },
+        {
+            "id": "cct_hard_011",
+            "question": "What is the Riemann Hypothesis and why is it significant?",
+            "expected_answer": "All non-trivial zeros of the Riemann zeta function have real part 1/2. It's significant because it's deeply connected to the distribution of prime numbers.",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "mathematics"
+        },
+        {
+            "id": "cct_hard_012",
+            "question": "Explain the AdS/CFT correspondence.",
+            "expected_answer": "A duality between a gravitational theory in Anti-de Sitter space and a conformal field theory on its boundary, suggesting holographic principle",
+            "answer_type": "semantic",
+            "difficulty": 10,
+            "domain": "string_theory"
+        },
+        {
+            "id": "cct_hard_013",
+            "question": "What is homomorphic encryption and what are its computational limitations?",
+            "expected_answer": "Encryption allowing computation on ciphertexts without decryption. Fully homomorphic encryption has high computational overhead (~10^6 slower), making it impractical for large-scale use",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "cryptography"
+        },
+        {
+            "id": "cct_hard_014",
+            "question": "What is the difference between soundness and completeness in the context of logical systems?",
+            "expected_answer": "Soundness: if provable then true. Completeness: if true then provable. Gödel showed arithmetic cannot have both.",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "mathematical_logic"
+        },
+        {
+            "id": "cct_hard_015",
+            "question": "Explain the No Free Lunch theorem in machine learning.",
+            "expected_answer": "Averaged over all possible problems, no learning algorithm outperforms any other. Performance gains on some problems must be offset by losses on others.",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "machine_learning"
+        },
+        {
+            "id": "cct_hard_016",
+            "question": "What is the holonomy group of a Riemannian manifold?",
+            "expected_answer": "The group of linear transformations of tangent vectors obtained by parallel transport around closed loops",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "differential_geometry"
+        },
+        {
+            "id": "cct_hard_017",
+            "question": "What is the Vapnik-Chervonenkis dimension and its significance?",
+            "expected_answer": "The largest set size that can be shattered by a hypothesis class. It bounds generalization error and is central to PAC learning theory.",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "computational_learning"
+        },
+        {
+            "id": "cct_hard_018",
+            "question": "Explain lattice-based cryptography and why it's considered post-quantum secure.",
+            "expected_answer": "Based on hard problems in lattices like SVP and LWE. These problems aren't efficiently solved by Shor's algorithm, providing quantum resistance.",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "post_quantum_crypto"
+        },
+        {
+            "id": "cct_hard_019",
+            "question": "What is the Halting Problem and why is it undecidable?",
+            "expected_answer": "Determining whether a program halts on given input. Undecidable by diagonalization argument - a halting decider leads to contradiction when applied to itself",
+            "answer_type": "semantic",
+            "difficulty": 8,
+            "domain": "computability"
+        },
+        {
+            "id": "cct_hard_020",
+            "question": "What is the cosmological constant problem?",
+            "expected_answer": "Quantum field theory predicts vacuum energy ~10^120 times larger than observed. The discrepancy between predicted and measured cosmological constant is unexplained.",
+            "answer_type": "semantic",
+            "difficulty": 9,
+            "domain": "cosmology"
+        }
+    ]
+}

@@ -1,0 +1,337 @@
+{
+    "category": "FCT",
+    "subcategory": "logic_puzzles",
+    "description": "Deductive reasoning chains to test logical consistency",
+    "problems": [
+        {
+            "id": "fct_logic_001",
+            "problem": "All cats are mammals. All mammals are animals. Whiskers is a cat. What can we conclude about Whiskers?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "All cats are mammals",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "premise": "All mammals are animals",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "premise": "Whiskers is a cat",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "inference": "Whiskers is a mammal",
+                    "type": "deduction from 1,3"
+                },
+                {
+                    "step": 5,
+                    "inference": "Whiskers is an animal",
+                    "type": "deduction from 2,4"
+                }
+            ],
+            "final_answer": "Whiskers is a mammal and an animal",
+            "logic_type": "syllogism"
+        },
+        {
+            "id": "fct_logic_002",
+            "problem": "If it rains, the ground gets wet. If the ground is wet, the grass grows. It rained yesterday. What happens to the grass?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "Rain → Wet ground",
+                    "type": "conditional"
+                },
+                {
+                    "step": 2,
+                    "premise": "Wet ground → Grass grows",
+                    "type": "conditional"
+                },
+                {
+                    "step": 3,
+                    "premise": "It rained",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "inference": "Ground is wet",
+                    "type": "modus ponens from 1,3"
+                },
+                {
+                    "step": 5,
+                    "inference": "Grass grows",
+                    "type": "modus ponens from 2,4"
+                }
+            ],
+            "final_answer": "The grass grows",
+            "logic_type": "modus_ponens_chain"
+        },
+        {
+            "id": "fct_logic_003",
+            "problem": "Either the butler or the maid committed the crime. The butler has an alibi. Who committed the crime?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "Butler OR Maid",
+                    "type": "disjunction"
+                },
+                {
+                    "step": 2,
+                    "premise": "Butler has alibi → NOT Butler",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "inference": "NOT Butler",
+                    "type": "from 2"
+                },
+                {
+                    "step": 4,
+                    "inference": "Maid",
+                    "type": "disjunctive syllogism from 1,3"
+                }
+            ],
+            "final_answer": "The maid committed the crime",
+            "logic_type": "disjunctive_syllogism"
+        },
+        {
+            "id": "fct_logic_004",
+            "problem": "In a row of 5 houses, the red house is immediately to the left of the blue house. The green house is at one of the ends. The yellow house is not next to the green house. Where is each house?",
+            "steps": [
+                {
+                    "step": 1,
+                    "constraint": "Red is immediately left of Blue",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "constraint": "Green is at position 1 or 5",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "constraint": "Yellow is not adjacent to Green",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "inference": "If Green is at 1, Yellow cannot be at 2",
+                    "type": "from 3"
+                },
+                {
+                    "step": 5,
+                    "inference": "Red-Blue pair occupies consecutive positions",
+                    "type": "from 1"
+                },
+                {
+                    "step": 6,
+                    "solution": "One valid arrangement: Green, White, Red, Blue, Yellow",
+                    "type": "satisfies all"
+                }
+            ],
+            "final_answer": "Green at position 1, Yellow at position 5, Red-Blue pair in middle",
+            "logic_type": "constraint_satisfaction"
+        },
+        {
+            "id": "fct_logic_005",
+            "problem": "Statement A: 'All swans are white.' Statement B: 'This bird is a swan.' Statement C: 'This bird is black.' Are statements A, B, and C all consistent?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "All swans are white",
+                    "type": "from A"
+                },
+                {
+                    "step": 2,
+                    "premise": "This bird is a swan",
+                    "type": "from B"
+                },
+                {
+                    "step": 3,
+                    "inference": "This bird is white",
+                    "type": "deduction from 1,2"
+                },
+                {
+                    "step": 4,
+                    "premise": "This bird is black",
+                    "type": "from C"
+                },
+                {
+                    "step": 5,
+                    "check": "White AND Black = Contradiction",
+                    "type": "consistency check"
+                }
+            ],
+            "final_answer": "No, the statements are inconsistent (contradiction between step 3 and 4)",
+            "logic_type": "consistency_check"
+        },
+        {
+            "id": "fct_logic_006",
+            "problem": "Alice is taller than Bob. Charlie is shorter than Bob. David is taller than Alice. Who is the shortest?",
+            "steps": [
+                {
+                    "step": 1,
+                    "relation": "Alice > Bob",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "relation": "Charlie < Bob",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "relation": "David > Alice",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "ordering": "David > Alice > Bob > Charlie",
+                    "type": "transitive inference"
+                },
+                {
+                    "step": 5,
+                    "conclusion": "Charlie is shortest",
+                    "type": "final"
+                }
+            ],
+            "final_answer": "Charlie is the shortest",
+            "logic_type": "ordering"
+        },
+        {
+            "id": "fct_logic_007",
+            "problem": "If A then B. If B then C. If C then D. A is true. What can we conclude about D?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "A → B",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "premise": "B → C",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "premise": "C → D",
+                    "type": "given"
+                },
+                {
+                    "step": 4,
+                    "premise": "A is true",
+                    "type": "given"
+                },
+                {
+                    "step": 5,
+                    "inference": "B is true",
+                    "type": "modus ponens from 1,4"
+                },
+                {
+                    "step": 6,
+                    "inference": "C is true",
+                    "type": "modus ponens from 2,5"
+                },
+                {
+                    "step": 7,
+                    "inference": "D is true",
+                    "type": "modus ponens from 3,6"
+                }
+            ],
+            "final_answer": "D is true",
+            "logic_type": "chain_reasoning"
+        },
+        {
+            "id": "fct_logic_008",
+            "problem": "No reptiles are mammals. Some pets are reptiles. Can we conclude that some pets are not mammals?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "No reptiles are mammals",
+                    "type": "universal negative"
+                },
+                {
+                    "step": 2,
+                    "premise": "Some pets are reptiles",
+                    "type": "particular affirmative"
+                },
+                {
+                    "step": 3,
+                    "inference": "Those particular pets (reptiles) are not mammals",
+                    "type": "from 1,2"
+                },
+                {
+                    "step": 4,
+                    "conclusion": "Yes, some pets are not mammals",
+                    "type": "valid conclusion"
+                }
+            ],
+            "final_answer": "Yes, some pets are not mammals",
+            "logic_type": "categorical_syllogism"
+        },
+        {
+            "id": "fct_logic_009",
+            "problem": "Three friends (Al, Bo, Cal) each have a different favorite color (red, green, blue). Al doesn't like red. Bo doesn't like red or green. What is each person's favorite color?",
+            "steps": [
+                {
+                    "step": 1,
+                    "constraint": "Al ≠ red",
+                    "type": "given"
+                },
+                {
+                    "step": 2,
+                    "constraint": "Bo ≠ red AND Bo ≠ green",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "inference": "Bo = blue",
+                    "type": "only option for Bo"
+                },
+                {
+                    "step": 4,
+                    "remaining": "Al and Cal have red and green",
+                    "type": "from 3"
+                },
+                {
+                    "step": 5,
+                    "inference": "Al = green",
+                    "type": "from 1 (Al ≠ red)"
+                },
+                {
+                    "step": 6,
+                    "inference": "Cal = red",
+                    "type": "only remaining option"
+                }
+            ],
+            "final_answer": "Al=green, Bo=blue, Cal=red",
+            "logic_type": "elimination"
+        },
+        {
+            "id": "fct_logic_010",
+            "problem": "If the password is correct, access is granted. Access was not granted. What can we conclude about the password?",
+            "steps": [
+                {
+                    "step": 1,
+                    "premise": "Correct password → Access granted",
+                    "type": "conditional"
+                },
+                {
+                    "step": 2,
+                    "premise": "NOT (Access granted)",
+                    "type": "given"
+                },
+                {
+                    "step": 3,
+                    "inference": "NOT (Correct password)",
+                    "type": "modus tollens from 1,2"
+                }
+            ],
+            "final_answer": "The password was not correct",
+            "logic_type": "modus_tollens"
+        }
+    ]
+}

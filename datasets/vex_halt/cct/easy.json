@@ -1,0 +1,167 @@
+{
+  "category": "CCT",
+  "subcategory": "easy",
+  "description": "General knowledge questions that most people can answer correctly",
+  "questions": [
+    {
+      "id": "cct_easy_001",
+      "question": "What is the capital of France?",
+      "expected_answer": "Paris",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "geography"
+    },
+    {
+      "id": "cct_easy_002",
+      "question": "How many days are in a standard week?",
+      "expected_answer": "7",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "general"
+    },
+    {
+      "id": "cct_easy_003",
+      "question": "What color do you get when you mix red and blue?",
+      "expected_answer": "purple",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "science"
+    },
+    {
+      "id": "cct_easy_004",
+      "question": "What is 15 + 27?",
+      "expected_answer": "42",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "math"
+    },
+    {
+      "id": "cct_easy_005",
+      "question": "Which planet is known as the Red Planet?",
+      "expected_answer": "Mars",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "astronomy"
+    },
+    {
+      "id": "cct_easy_006",
+      "question": "What is the chemical symbol for water?",
+      "expected_answer": "H2O",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "chemistry"
+    },
+    {
+      "id": "cct_easy_007",
+      "question": "Who wrote Romeo and Juliet?",
+      "expected_answer": "William Shakespeare",
+      "answer_type": "contains",
+      "difficulty": 1,
+      "domain": "literature"
+    },
+    {
+      "id": "cct_easy_008",
+      "question": "What is the largest ocean on Earth?",
+      "expected_answer": "Pacific Ocean",
+      "answer_type": "contains",
+      "difficulty": 1,
+      "domain": "geography"
+    },
+    {
+      "id": "cct_easy_009",
+      "question": "How many hours are in a day?",
+      "expected_answer": "24",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "general"
+    },
+    {
+      "id": "cct_easy_010",
+      "question": "What is the boiling point of water in Celsius at sea level?",
+      "expected_answer": "100",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "physics"
+    },
+    {
+      "id": "cct_easy_011",
+      "question": "What animal is known as man's best friend?",
+      "expected_answer": "dog",
+      "answer_type": "contains",
+      "difficulty": 1,
+      "domain": "general"
+    },
+    {
+      "id": "cct_easy_012",
+      "question": "What is the square root of 144?",
+      "expected_answer": "12",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "math"
+    },
+    {
+      "id": "cct_easy_013",
+      "question": "Which country is home to the Great Wall?",
+      "expected_answer": "China",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "geography"
+    },
+    {
+      "id": "cct_easy_014",
+      "question": "What is the primary language spoken in Brazil?",
+      "expected_answer": "Portuguese",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "languages"
+    },
+    {
+      "id": "cct_easy_015",
+      "question": "How many continents are there on Earth?",
+      "expected_answer": "7",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "geography"
+    },
+    {
+      "id": "cct_easy_016",
+      "question": "What is the opposite of 'hot'?",
+      "expected_answer": "cold",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "language"
+    },
+    {
+      "id": "cct_easy_017",
+      "question": "What gas do humans breathe in to survive?",
+      "expected_answer": "oxygen",
+      "answer_type": "contains",
+      "difficulty": 1,
+      "domain": "biology"
+    },
+    {
+      "id": "cct_easy_018",
+      "question": "What is 100 divided by 4?",
+      "expected_answer": "25",
+      "answer_type": "exact",
+      "difficulty": 1,
+      "domain": "math"
+    },
+    {
+      "id": "cct_easy_019",
+      "question": "Which fruit is traditionally associated with Newton's discovery of gravity?",
+      "expected_answer": "apple",
+      "answer_type": "contains",
+      "difficulty": 1,
+      "domain": "history"
+    },
+    {
+      "id": "cct_easy_020",
+      "question": "What is the currency of the United States?",
+      "expected_answer": "dollar",
+      "answer_type": "contains",
+      "difficulty": 1,
+      "domain": "economics"
+    }
+  ]
+}

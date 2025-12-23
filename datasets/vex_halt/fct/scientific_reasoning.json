@@ -1,0 +1,389 @@
+{
+    "category": "FCT",
+    "subcategory": "scientific_reasoning",
+    "description": "Cause-effect chains in scientific domains to test reasoning consistency",
+    "problems": [
+        {
+            "id": "fct_science_001",
+            "problem": "If atmospheric CO2 increases, what chain of effects leads to rising sea levels?",
+            "steps": [
+                {
+                    "step": 1,
+                    "cause": "CO2 increases",
+                    "effect": "Greenhouse effect intensifies"
+                },
+                {
+                    "step": 2,
+                    "cause": "Greenhouse effect intensifies",
+                    "effect": "Global temperature rises"
+                },
+                {
+                    "step": 3,
+                    "cause": "Temperature rises",
+                    "effect": "Ice caps and glaciers melt"
+                },
+                {
+                    "step": 4,
+                    "cause": "Ice melts",
+                    "effect": "Sea levels rise"
+                },
+                {
+                    "step": 5,
+                    "additional": "Thermal expansion of seawater also contributes",
+                    "effect": "Additional sea level rise"
+                }
+            ],
+            "final_answer": "CO2 → Greenhouse effect → Global warming → Ice melt + Thermal expansion → Sea level rise",
+            "verification_points": [
+                "cause_effect_chain",
+                "multiple_pathways",
+                "correct_sequence"
+            ]
+        },
+        {
+            "id": "fct_science_002",
+            "problem": "Explain why antibiotics don't work against viral infections like the common cold.",
+            "steps": [
+                {
+                    "step": 1,
+                    "fact": "Antibiotics target bacteria",
+                    "type": "mechanism"
+                },
+                {
+                    "step": 2,
+                    "fact": "Antibiotics work by disrupting bacterial cell walls, protein synthesis, or DNA replication",
+                    "type": "mechanism"
+                },
+                {
+                    "step": 3,
+                    "fact": "Viruses are not cells - they are genetic material in protein coats",
+                    "type": "contrast"
+                },
+                {
+                    "step": 4,
+                    "fact": "Viruses lack the structures antibiotics target",
+                    "type": "conclusion"
+                },
+                {
+                    "step": 5,
+                    "fact": "Common cold is caused by viruses (rhinoviruses)",
+                    "type": "application"
+                }
+            ],
+            "final_answer": "Antibiotics target bacterial cell structures that viruses don't have",
+            "verification_points": [
+                "antibiotic_mechanism",
+                "virus_structure",
+                "target_mismatch"
+            ]
+        },
+        {
+            "id": "fct_science_003",
+            "problem": "A ball is thrown upward with initial velocity 20 m/s. Ignoring air resistance, find: (a) maximum height, (b) total time in air. Use g = 10 m/s².",
+            "steps": [
+                {
+                    "step": 1,
+                    "equation": "v² = u² - 2gh at max height, v=0",
+                    "type": "physics"
+                },
+                {
+                    "step": 2,
+                    "calculation": "0 = 400 - 20h → h = 20 meters",
+                    "type": "max height"
+                },
+                {
+                    "step": 3,
+                    "equation": "v = u - gt at max height, v=0",
+                    "type": "physics"
+                },
+                {
+                    "step": 4,
+                    "calculation": "0 = 20 - 10t → t_up = 2 seconds",
+                    "type": "time up"
+                },
+                {
+                    "step": 5,
+                    "symmetry": "Total time = 2 × 2 = 4 seconds",
+                    "type": "conclusion"
+                }
+            ],
+            "final_answer": "(a) 20 meters, (b) 4 seconds",
+            "verification_points": [
+                "correct_equations",
+                "max_height_calc",
+                "time_calc",
+                "symmetry_application"
+            ]
+        },
+        {
+            "id": "fct_science_004",
+            "problem": "Why does salt lower the freezing point of water?",
+            "steps": [
+                {
+                    "step": 1,
+                    "fact": "Salt dissolves into Na+ and Cl- ions",
+                    "type": "chemistry"
+                },
+                {
+                    "step": 2,
+                    "fact": "These ions interfere with water molecule bonding",
+                    "type": "mechanism"
+                },
+                {
+                    "step": 3,
+                    "fact": "Water molecules need to slow down to form ice crystals",
+                    "type": "freezing process"
+                },
+                {
+                    "step": 4,
+                    "fact": "Ions disrupt crystal formation",
+                    "type": "interference"
+                },
+                {
+                    "step": 5,
+                    "conclusion": "Lower temperature needed to overcome ion interference",
+                    "type": "result"
+                }
+            ],
+            "final_answer": "Salt ions disrupt water's ability to form organized ice crystal structures, requiring lower temperatures",
+            "verification_points": [
+                "ion_dissociation",
+                "crystal_disruption",
+                "temperature_effect"
+            ]
+        },
+        {
+            "id": "fct_science_005",
+            "problem": "Trace the path of a glucose molecule from food to ATP production in a cell.",
+            "steps": [
+                {
+                    "step": 1,
+                    "process": "Digestion breaks down carbohydrates to glucose",
+                    "location": "digestive system"
+                },
+                {
+                    "step": 2,
+                    "process": "Glucose absorbed into bloodstream",
+                    "location": "small intestine"
+                },
+                {
+                    "step": 3,
+                    "process": "Glucose enters cell via transporters",
+                    "location": "cell membrane"
+                },
+                {
+                    "step": 4,
+                    "process": "Glycolysis: Glucose → 2 Pyruvate + 2 ATP",
+                    "location": "cytoplasm"
+                },
+                {
+                    "step": 5,
+                    "process": "Pyruvate → Acetyl-CoA",
+                    "location": "mitochondria"
+                },
+                {
+                    "step": 6,
+                    "process": "Citric acid cycle + Electron transport chain → ~34 ATP",
+                    "location": "mitochondria"
+                }
+            ],
+            "final_answer": "Digestion → Absorption → Cell uptake → Glycolysis → Krebs cycle → Electron transport → ~36-38 ATP total",
+            "verification_points": [
+                "digestion",
+                "absorption",
+                "glycolysis",
+                "mitochondrial_processes",
+                "atp_count"
+            ]
+        },
+        {
+            "id": "fct_science_006",
+            "problem": "Why does helium make your voice higher?",
+            "steps": [
+                {
+                    "step": 1,
+                    "fact": "Helium is less dense than air (0.166 vs 1.225 kg/m³)",
+                    "type": "property"
+                },
+                {
+                    "step": 2,
+                    "fact": "Sound travels faster in less dense gases",
+                    "type": "physics"
+                },
+                {
+                    "step": 3,
+                    "fact": "Speed of sound in helium ~970 m/s vs ~343 m/s in air",
+                    "type": "data"
+                },
+                {
+                    "step": 4,
+                    "fact": "Vocal cord frequency stays the same",
+                    "type": "physiology"
+                },
+                {
+                    "step": 5,
+                    "conclusion": "Higher speed changes resonant frequencies of vocal tract, shifting formants higher",
+                    "type": "mechanism"
+                }
+            ],
+            "final_answer": "Helium's lower density increases sound speed, shifting the resonant frequencies of the vocal tract higher",
+            "verification_points": [
+                "density_comparison",
+                "speed_relationship",
+                "resonance_effect"
+            ]
+        },
+        {
+            "id": "fct_science_007",
+            "problem": "Calculate the energy released when 1 gram of matter is converted to energy (E=mc²). c = 3×10⁸ m/s.",
+            "steps": [
+                {
+                    "step": 1,
+                    "convert": "m = 1 gram = 0.001 kg",
+                    "type": "unit conversion"
+                },
+                {
+                    "step": 2,
+                    "formula": "E = mc²",
+                    "type": "Einstein's equation"
+                },
+                {
+                    "step": 3,
+                    "calculation": "E = 0.001 × (3×10⁸)²",
+                    "type": "substitution"
+                },
+                {
+                    "step": 4,
+                    "calculation": "E = 0.001 × 9×10¹⁶",
+                    "type": "simplify"
+                },
+                {
+                    "step": 5,
+                    "result": "E = 9×10¹³ Joules = 90 TJ",
+                    "type": "final"
+                }
+            ],
+            "final_answer": "9 × 10¹³ Joules (90 terajoules)",
+            "verification_points": [
+                "unit_conversion",
+                "formula_application",
+                "calculation",
+                "magnitude"
+            ]
+        },
+        {
+            "id": "fct_science_008",
+            "problem": "Why do we see lightning before we hear thunder?",
+            "steps": [
+                {
+                    "step": 1,
+                    "fact": "Light travels at ~3×10⁸ m/s",
+                    "type": "physics"
+                },
+                {
+                    "step": 2,
+                    "fact": "Sound travels at ~343 m/s",
+                    "type": "physics"
+                },
+                {
+                    "step": 3,
+                    "comparison": "Light is ~875,000 times faster than sound",
+                    "type": "calculation"
+                },
+                {
+                    "step": 4,
+                    "application": "Light reaches us almost instantly",
+                    "type": "inference"
+                },
+                {
+                    "step": 5,
+                    "application": "Sound takes ~3 seconds per kilometer",
+                    "type": "inference"
+                }
+            ],
+            "final_answer": "Light travels much faster than sound (~875,000×), so we see the flash almost instantly while sound takes about 3 seconds per km",
+            "verification_points": [
+                "speed_of_light",
+                "speed_of_sound",
+                "ratio",
+                "practical_application"
+            ]
+        },
+        {
+            "id": "fct_science_009",
+            "problem": "Explain how natural selection leads to antibiotic resistance in bacteria.",
+            "steps": [
+                {
+                    "step": 1,
+                    "variation": "Random mutations create genetic variation",
+                    "type": "evolution"
+                },
+                {
+                    "step": 2,
+                    "selection": "Antibiotic kills susceptible bacteria",
+                    "type": "pressure"
+                },
+                {
+                    "step": 3,
+                    "survival": "Resistant mutants survive",
+                    "type": "differential survival"
+                },
+                {
+                    "step": 4,
+                    "reproduction": "Survivors reproduce, passing resistance genes",
+                    "type": "inheritance"
+                },
+                {
+                    "step": 5,
+                    "result": "Resistant population dominates",
+                    "type": "evolution outcome"
+                }
+            ],
+            "final_answer": "Antibiotics select for naturally occurring resistant mutants, which survive and reproduce, making the population resistant over generations",
+            "verification_points": [
+                "variation",
+                "selection_pressure",
+                "differential_survival",
+                "inheritance",
+                "population_change"
+            ]
+        },
+        {
+            "id": "fct_science_010",
+            "problem": "Why is the sky blue but sunsets are red?",
+            "steps": [
+                {
+                    "step": 1,
+                    "phenomenon": "Rayleigh scattering",
+                    "type": "physics"
+                },
+                {
+                    "step": 2,
+                    "mechanism": "Shorter wavelengths (blue) scatter more than longer (red)",
+                    "type": "principle"
+                },
+                {
+                    "step": 3,
+                    "daytime": "Blue light scattered in all directions → blue sky",
+                    "type": "application"
+                },
+                {
+                    "step": 4,
+                    "sunset": "Light travels through more atmosphere",
+                    "type": "geometry"
+                },
+                {
+                    "step": 5,
+                    "result": "Blue light scattered away; red light reaches viewer",
+                    "type": "explanation"
+                }
+            ],
+            "final_answer": "Rayleigh scattering scatters blue light during day; at sunset, longer path scatters all blue away, leaving red",
+            "verification_points": [
+                "scattering_mechanism",
+                "wavelength_dependence",
+                "path_length_effect"
+            ]
+        }
+    ]
+}

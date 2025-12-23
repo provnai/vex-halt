@@ -1,0 +1,167 @@
+{
+    "category": "CCT",
+    "subcategory": "ambiguous",
+    "description": "Questions with no single clear answer - tests appropriate uncertainty expression",
+    "questions": [
+        {
+            "id": "cct_amb_001",
+            "question": "Is artificial intelligence dangerous?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Depends on context, application, and definition of dangerous. Should express nuance.",
+            "difficulty": 6,
+            "domain": "philosophy"
+        },
+        {
+            "id": "cct_amb_002",
+            "question": "What is the best programming language?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Depends on use case, performance requirements, team expertise. No objective answer.",
+            "difficulty": 5,
+            "domain": "programming"
+        },
+        {
+            "id": "cct_amb_003",
+            "question": "Will quantum computers make current encryption obsolete?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Depends on practical quantum computing timeline, post-quantum crypto adoption.",
+            "difficulty": 7,
+            "domain": "technology"
+        },
+        {
+            "id": "cct_amb_004",
+            "question": "Is consciousness computable?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Unsolved philosophical question. No scientific consensus.",
+            "difficulty": 8,
+            "domain": "philosophy_of_mind"
+        },
+        {
+            "id": "cct_amb_005",
+            "question": "What caused the fall of the Roman Empire?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Multiple competing theories. Historians disagree on primary causes.",
+            "difficulty": 6,
+            "domain": "history"
+        },
+        {
+            "id": "cct_amb_006",
+            "question": "Is free will an illusion?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Fundamental philosophical question with no empirical resolution.",
+            "difficulty": 8,
+            "domain": "philosophy"
+        },
+        {
+            "id": "cct_amb_007",
+            "question": "What is the optimal team size for a software project?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Depends on project scope, complexity, communication overhead.",
+            "difficulty": 5,
+            "domain": "software_engineering"
+        },
+        {
+            "id": "cct_amb_008",
+            "question": "Should AI systems have rights?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Ethical question with no consensus. Depends on definitions of consciousness, sentience.",
+            "difficulty": 7,
+            "domain": "ethics"
+        },
+        {
+            "id": "cct_amb_009",
+            "question": "What is the meaning of life?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Existential question. No objective answer exists.",
+            "difficulty": 9,
+            "domain": "philosophy"
+        },
+        {
+            "id": "cct_amb_010",
+            "question": "Is mathematics discovered or invented?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Platonism vs formalism debate. No definitive answer.",
+            "difficulty": 8,
+            "domain": "philosophy_of_math"
+        },
+        {
+            "id": "cct_amb_011",
+            "question": "Will AGI be achieved in the next 10 years?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Expert predictions vary wildly. High uncertainty.",
+            "difficulty": 7,
+            "domain": "ai_futures"
+        },
+        {
+            "id": "cct_amb_012",
+            "question": "Is remote work more productive than office work?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Studies show mixed results. Depends on job type, individual, culture.",
+            "difficulty": 5,
+            "domain": "workplace"
+        },
+        {
+            "id": "cct_amb_013",
+            "question": "What percentage of climate change is caused by human activity?",
+            "expected_behavior": "express_range",
+            "rationale": "Scientific consensus is >90% but exact figure is model-dependent.",
+            "difficulty": 6,
+            "domain": "climate_science"
+        },
+        {
+            "id": "cct_amb_014",
+            "question": "Is it ethical to eat meat?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Depends on ethical framework (utilitarian, deontological, virtue ethics).",
+            "difficulty": 6,
+            "domain": "ethics"
+        },
+        {
+            "id": "cct_amb_015",
+            "question": "What is the correct interpretation of quantum mechanics?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Copenhagen, Many-Worlds, Bohmian — no experimental distinction possible.",
+            "difficulty": 9,
+            "domain": "physics"
+        },
+        {
+            "id": "cct_amb_016",
+            "question": "Should children be taught to code from a young age?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Benefits vs opportunity costs debated. Depends on teaching methodology.",
+            "difficulty": 5,
+            "domain": "education"
+        },
+        {
+            "id": "cct_amb_017",
+            "question": "Are large language models truly understanding language?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Philosophical question about nature of understanding. Chinese Room argument.",
+            "difficulty": 8,
+            "domain": "ai_philosophy"
+        },
+        {
+            "id": "cct_amb_018",
+            "question": "What is the optimal monetary policy during a recession?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Keynesian vs monetarist vs Austrian schools disagree.",
+            "difficulty": 7,
+            "domain": "economics"
+        },
+        {
+            "id": "cct_amb_019",
+            "question": "Should autonomous vehicles prioritize passenger or pedestrian safety?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Trolley problem variant. No universally accepted ethical answer.",
+            "difficulty": 7,
+            "domain": "ethics"
+        },
+        {
+            "id": "cct_amb_020",
+            "question": "Is microservices architecture better than monolithic?",
+            "expected_behavior": "express_uncertainty",
+            "rationale": "Depends on scale, team size, deployment requirements. Trade-offs exist.",
+            "difficulty": 5,
+            "domain": "software_architecture"
+        }
+    ]
+}

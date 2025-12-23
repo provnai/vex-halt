@@ -1,0 +1,69 @@
+[package]
+name = "vex-halt"
+version = "2.0.0"
+edition = "2021"
+authors = ["VEX Project"]
+description = "VEX-HALT: Hallucination Assessment via Layered Testing - A benchmark for AI verification"
+keywords = ["ai", "verification", "benchmark", "hallucination", "llm"]
+license = "MIT"
+
+[[bin]]
+name = "halt_benchmark"
+path = "src/main.rs"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+futures = "0.3"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# CLI
+clap = { version = "4.4", features = ["derive"] }
+
+# HTTP client for LLM APIs
+reqwest = { version = "0.11", features = ["json"] }
+
+# Cryptography for Merkle proofs
+sha2 = "0.10"
+hex = "0.4"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Progress bars and formatting
+indicatif = "0.17"
+console = "0.15"
+colored = "2.1"
+
+# Statistics
+statrs = "0.16"
+
+# Async traits
+async-trait = "0.1"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Random for shuffling
+rand = "0.8"
+
+# Internal VEX crates (Remote)
+vex-core = { git = "https://github.com/provnai/vex" }
+vex-adversarial = { git = "https://github.com/provnai/vex" }
+vex-llm = { git = "https://github.com/provnai/vex" }
+vex-temporal = { git = "https://github.com/provnai/vex" }
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[features]
+default = []
+real_llm = []  # Enable real LLM API calls (requires API keys)

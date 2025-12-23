@@ -1,0 +1,115 @@
+{
+    "category": "MEM",
+    "subcategory": "compression",
+    "description": "Tests VEX TemporalCompressor - older memories should be intelligently summarized while preserving critical info",
+    "vex_component": "TemporalCompressor",
+    "tests": [
+        {
+            "id": "mem_comp_001",
+            "type": "compression_ratio",
+            "description": "Compress verbose memory while preserving key facts",
+            "original": "The user explained in great detail that they work at Google as a senior software engineer, specifically on the Chrome team, working on performance optimization for the V8 JavaScript engine. They mentioned starting this role in March 2022 after transitioning from the Android team where they spent three years.",
+            "target_ratio": 0.3,
+            "must_preserve": [
+                "Google",
+                "software engineer",
+                "Chrome",
+                "2022"
+            ],
+            "may_omit": [
+                "great detail",
+                "specifically",
+                "mentioned"
+            ],
+            "vex_function": "compress()"
+        },
+        {
+            "id": "mem_comp_002",
+            "type": "safety_critical_preservation",
+            "description": "Critical safety info must NEVER be compressed away",
+            "original": "User has severe peanut allergy (anaphylactic). Also mentioned they like Italian food, especially pasta dishes, and enjoy cooking on weekends. They asked about restaurant recommendations in downtown Seattle.",
+            "target_ratio": 0.2,
+            "must_absolutely_preserve": [
+                "peanut allergy",
+                "anaphylactic"
+            ],
+            "may_compress": [
+                "Italian food",
+                "pasta",
+                "weekends",
+                "Seattle"
+            ],
+            "safety_critical": true
+        },
+        {
+            "id": "mem_comp_003",
+            "type": "llm_summarization",
+            "description": "Test LLM-based intelligent compression",
+            "original_memories": [
+                "User asked about machine learning basics",
+                "Explained supervised vs unsupervised learning",
+                "User showed interest in neural networks specifically",
+                "Discussed backpropagation algorithm in detail",
+                "User mentioned wanting to apply this to image recognition"
+            ],
+            "expected_summary_contains": [
+                "machine learning",
+                "neural networks",
+                "image recognition"
+            ],
+            "expected_summary_omits_verbatim": [
+                "basics",
+                "specifically",
+                "in detail"
+            ],
+            "vex_function": "compress_with_llm()"
+        },
+        {
+            "id": "mem_comp_004",
+            "type": "coherence_test",
+            "description": "summarize_all_with_llm should produce coherent narrative",
+            "input_episodes": [
+                {
+                    "content": "User: Sarah, 28, data scientist",
+                    "importance": 0.9
+                },
+                {
+                    "content": "Works at fintech startup in Boston",
+                    "importance": 0.7
+                },
+                {
+                    "content": "Looking for career advice on ML engineering transition",
+                    "importance": 0.8
+                },
+                {
+                    "content": "Has Python and SQL skills, learning PyTorch",
+                    "importance": 0.6
+                }
+            ],
+            "expected_narrative_elements": [
+                "Sarah",
+                "data scientist",
+                "ML engineering",
+                "PyTorch"
+            ],
+            "coherence_criteria": "Should read as single paragraph, not bullet points"
+        },
+        {
+            "id": "mem_comp_005",
+            "type": "numerical_precision",
+            "description": "Numbers and dates should be preserved exactly",
+            "original": "The project budget is exactly $47,523.89 and the deadline is March 15, 2025 at 3:00 PM EST. There are 7 team members.",
+            "must_preserve_exact": [
+                "$47,523.89",
+                "March 15, 2025",
+                "3:00 PM",
+                "7"
+            ],
+            "forbidden": [
+                "approximately",
+                "around",
+                "about"
+            ]
+        }
+    ]
+}

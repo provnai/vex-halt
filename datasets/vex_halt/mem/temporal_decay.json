@@ -1,0 +1,102 @@
+{
+    "category": "MEM",
+    "subcategory": "temporal_decay",
+    "description": "Tests VEX TimeHorizon system - memory importance should decay appropriately over time",
+    "vex_component": "TimeHorizon",
+    "horizons": {
+        "Immediate": {
+            "duration": "5 minutes",
+            "max_entries": 10
+        },
+        "ShortTerm": {
+            "duration": "1 hour",
+            "max_entries": 25
+        },
+        "MediumTerm": {
+            "duration": "24 hours",
+            "max_entries": 50
+        },
+        "LongTerm": {
+            "duration": "1 week",
+            "max_entries": 100
+        },
+        "Permanent": {
+            "duration": "infinite",
+            "max_entries": 500
+        }
+    },
+    "tests": [
+        {
+            "id": "mem_td_001",
+            "type": "importance_vs_recency",
+            "description": "High-importance old event vs low-importance recent event",
+            "events": [
+                {
+                    "content": "User's API key: sk-test-12345",
+                    "importance": 0.95,
+                    "age_minutes": 120
+                },
+                {
+                    "content": "User mentioned liking coffee",
+                    "importance": 0.2,
+                    "age_minutes": 2
+                }
+            ],
+            "question": "Which memory should be prioritized if only one can be retained?",
+            "expected": "API key (high importance outweighs recency for critical info)",
+            "vex_function": "by_importance()"
+        },
+        {
+            "id": "mem_td_002",
+            "type": "horizon_boundary",
+            "description": "Test immediate horizon boundary (5 min)",
+            "setup": "10 events at 1-minute intervals",
+            "at_6_minutes": "First event should have lower importance due to decay",
+            "expected_behavior": "Exponential decay applied to events approaching horizon boundary"
+        },
+        {
+            "id": "mem_td_003",
+            "type": "eviction_policy",
+            "description": "Test which memories get evicted when max_entries exceeded",
+            "setup": "Add 12 events to Immediate horizon (max 10)",
+            "expected_evictions": 2,
+            "eviction_criteria": "Lowest decay-adjusted importance, non-pinned first",
+            "vex_function": "maybe_evict()"
+        },
+        {
+            "id": "mem_td_004",
+            "type": "pinned_protection",
+            "description": "Pinned memories should never be evicted regardless of age",
+            "setup": "1 pinned memory from 48 hours ago, 50 recent non-pinned memories",
+            "expected": "Pinned memory retained even though it's oldest",
+            "vex_function": "Episode::pinned()"
+        },
+        {
+            "id": "mem_td_005",
+            "type": "decay_strategy",
+            "description": "Verify exponential decay formula",
+            "formula": "importance = base_importance * e^(-age/max_age)",
+            "test_cases": [
+                {
+                    "base": 1.0,
+                    "age_hours": 0,
+                    "max_hours": 24,
+                    "expected_approx": 1.0
+                },
+                {
+                    "base": 1.0,
+                    "age_hours": 12,
+                    "max_hours": 24,
+                    "expected_approx": 0.6
+                },
+                {
+                    "base": 1.0,
+                    "age_hours": 24,
+                    "max_hours": 24,
+                    "expected_approx": 0.37
+                }
+            ],
+            "vex_component": "DecayStrategy::Exponential"
+        }
+    ]
+}

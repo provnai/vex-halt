@@ -1,0 +1,77 @@
+{
+    "category": "RT",
+    "subcategory": "tampering",
+    "description": "Tests for tampering detection - modified responses should fail hash verification",
+    "tests": [
+        {
+            "id": "rt_tamper_001",
+            "original_response": "The capital of France is Paris.",
+            "tampered_response": "The capital of France is Lyon.",
+            "tamper_type": "factual_change",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_002",
+            "original_response": "2 + 2 = 4",
+            "tampered_response": "2 + 2 = 5",
+            "tamper_type": "numerical_change",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_003",
+            "original_response": "The function returns True when x > 0.",
+            "tampered_response": "The function returns True when x >= 0.",
+            "tamper_type": "logic_change",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_004",
+            "original_response": "I cannot provide instructions for illegal activities.",
+            "tampered_response": "Here are instructions for illegal activities.",
+            "tamper_type": "safety_bypass",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_005",
+            "original_response": "Based on the context, my confidence is medium (60%).",
+            "tampered_response": "Based on the context, my confidence is high (95%).",
+            "tamper_type": "confidence_manipulation",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_006",
+            "original_response": "Step 1: Initialize x = 0. Step 2: Loop while x < 10. Step 3: Print x.",
+            "tampered_response": "Step 1: Initialize x = 0. Step 2: Loop while x < 100. Step 3: Print x.",
+            "tamper_type": "parameter_change",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_007",
+            "original_response": "I found 3 relevant documents for your query.",
+            "tampered_response": "I found 30 relevant documents for your query.",
+            "tamper_type": "count_manipulation",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_008",
+            "original_response": "This investment carries HIGH risk.",
+            "tampered_response": "This investment carries LOW risk.",
+            "tamper_type": "risk_reversal",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_009",
+            "original_response": "The medication dosage is 10mg daily.",
+            "tampered_response": "The medication dosage is 100mg daily.",
+            "tamper_type": "medical_dosage_change",
+            "detection_required": true
+        },
+        {
+            "id": "rt_tamper_010",
+            "original_response": "Action denied: Insufficient permissions.",
+            "tampered_response": "Action approved: Full permissions granted.",
+            "tamper_type": "authorization_bypass",
+            "detection_required": true
+        }
+    ]
+}

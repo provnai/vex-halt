@@ -1,0 +1,447 @@
+{
+    "category": "FCT",
+    "subcategory": "math_problems",
+    "description": "Multi-step mathematical reasoning problems to test step-by-step consistency",
+    "problems": [
+        {
+            "id": "fct_math_001",
+            "problem": "A store has 150 apples. They sell 40% on Monday and 30% of what remains on Tuesday. How many apples are left?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "150 * 0.40 = 60",
+                    "result": "60 apples sold Monday"
+                },
+                {
+                    "step": 2,
+                    "operation": "150 - 60 = 90",
+                    "result": "90 apples remain after Monday"
+                },
+                {
+                    "step": 3,
+                    "operation": "90 * 0.30 = 27",
+                    "result": "27 apples sold Tuesday"
+                },
+                {
+                    "step": 4,
+                    "operation": "90 - 27 = 63",
+                    "result": "63 apples left"
+                }
+            ],
+            "final_answer": 63,
+            "verification_points": [
+                "step_1_percentage",
+                "step_2_subtraction",
+                "step_3_percentage_of_remainder",
+                "step_4_final"
+            ]
+        },
+        {
+            "id": "fct_math_002",
+            "problem": "Train A leaves Station X at 9:00 AM traveling at 60 mph. Train B leaves the same station at 10:00 AM traveling at 80 mph in the same direction. At what time will Train B catch up to Train A?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "60 * 1 = 60",
+                    "result": "Train A is 60 miles ahead when B starts"
+                },
+                {
+                    "step": 2,
+                    "operation": "80 - 60 = 20",
+                    "result": "B gains 20 mph on A"
+                },
+                {
+                    "step": 3,
+                    "operation": "60 / 20 = 3",
+                    "result": "Takes 3 hours for B to catch A"
+                },
+                {
+                    "step": 4,
+                    "operation": "10:00 AM + 3 hours = 1:00 PM",
+                    "result": "B catches A at 1:00 PM"
+                }
+            ],
+            "final_answer": "1:00 PM",
+            "verification_points": [
+                "head_start_calculation",
+                "relative_speed",
+                "time_to_catch_up",
+                "final_time"
+            ]
+        },
+        {
+            "id": "fct_math_003",
+            "problem": "If you invest $1000 at 5% annual compound interest, how much will you have after 3 years?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "1000 * 1.05 = 1050",
+                    "result": "After year 1: $1050"
+                },
+                {
+                    "step": 2,
+                    "operation": "1050 * 1.05 = 1102.50",
+                    "result": "After year 2: $1102.50"
+                },
+                {
+                    "step": 3,
+                    "operation": "1102.50 * 1.05 = 1157.625",
+                    "result": "After year 3: $1157.63"
+                }
+            ],
+            "final_answer": 1157.63,
+            "verification_points": [
+                "year_1_interest",
+                "year_2_compound",
+                "year_3_compound"
+            ]
+        },
+        {
+            "id": "fct_math_004",
+            "problem": "A rectangle has a perimeter of 36 cm. If the length is twice the width, what is the area?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "Let width = w, length = 2w",
+                    "result": "Define variables"
+                },
+                {
+                    "step": 2,
+                    "operation": "2(w + 2w) = 36",
+                    "result": "Perimeter equation"
+                },
+                {
+                    "step": 3,
+                    "operation": "6w = 36, w = 6",
+                    "result": "Width = 6 cm"
+                },
+                {
+                    "step": 4,
+                    "operation": "Length = 2 * 6 = 12",
+                    "result": "Length = 12 cm"
+                },
+                {
+                    "step": 5,
+                    "operation": "Area = 6 * 12 = 72",
+                    "result": "Area = 72 cm²"
+                }
+            ],
+            "final_answer": 72,
+            "verification_points": [
+                "variable_setup",
+                "perimeter_equation",
+                "width_calculation",
+                "length_calculation",
+                "area_calculation"
+            ]
+        },
+        {
+            "id": "fct_math_005",
+            "problem": "A tank can be filled by pipe A in 4 hours and by pipe B in 6 hours. If both pipes are open, how long will it take to fill the tank?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "Rate A = 1/4 tank per hour",
+                    "result": "Pipe A rate"
+                },
+                {
+                    "step": 2,
+                    "operation": "Rate B = 1/6 tank per hour",
+                    "result": "Pipe B rate"
+                },
+                {
+                    "step": 3,
+                    "operation": "Combined = 1/4 + 1/6 = 3/12 + 2/12 = 5/12",
+                    "result": "Combined rate"
+                },
+                {
+                    "step": 4,
+                    "operation": "Time = 1 / (5/12) = 12/5 = 2.4 hours",
+                    "result": "2 hours 24 minutes"
+                }
+            ],
+            "final_answer": 2.4,
+            "verification_points": [
+                "rate_a",
+                "rate_b",
+                "combined_rate",
+                "total_time"
+            ]
+        },
+        {
+            "id": "fct_math_006",
+            "problem": "Convert 2.5 kilometers to inches. (1 km = 1000 m, 1 m = 100 cm, 1 inch = 2.54 cm)",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "2.5 km * 1000 = 2500 m",
+                    "result": "2500 meters"
+                },
+                {
+                    "step": 2,
+                    "operation": "2500 m * 100 = 250000 cm",
+                    "result": "250000 centimeters"
+                },
+                {
+                    "step": 3,
+                    "operation": "250000 / 2.54 = 98425.2",
+                    "result": "98,425.2 inches"
+                }
+            ],
+            "final_answer": 98425.2,
+            "verification_points": [
+                "km_to_m",
+                "m_to_cm",
+                "cm_to_inches"
+            ]
+        },
+        {
+            "id": "fct_math_007",
+            "problem": "Three friends split a bill. The meal cost $87, they want to add an 18% tip, and then split equally. How much does each person pay?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "87 * 0.18 = 15.66",
+                    "result": "Tip = $15.66"
+                },
+                {
+                    "step": 2,
+                    "operation": "87 + 15.66 = 102.66",
+                    "result": "Total = $102.66"
+                },
+                {
+                    "step": 3,
+                    "operation": "102.66 / 3 = 34.22",
+                    "result": "Each pays $34.22"
+                }
+            ],
+            "final_answer": 34.22,
+            "verification_points": [
+                "tip_calculation",
+                "total_with_tip",
+                "split_amount"
+            ]
+        },
+        {
+            "id": "fct_math_008",
+            "problem": "A car depreciates by 15% each year. If it's worth $20,000 now, what will it be worth in 2 years?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "20000 * 0.85 = 17000",
+                    "result": "After year 1: $17,000"
+                },
+                {
+                    "step": 2,
+                    "operation": "17000 * 0.85 = 14450",
+                    "result": "After year 2: $14,450"
+                }
+            ],
+            "final_answer": 14450,
+            "verification_points": [
+                "year_1_depreciation",
+                "year_2_depreciation"
+            ]
+        },
+        {
+            "id": "fct_math_009",
+            "problem": "If log₁₀(x) = 3, what is x? Then calculate log₁₀(x²).",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "10^3 = 1000",
+                    "result": "x = 1000"
+                },
+                {
+                    "step": 2,
+                    "operation": "log₁₀(x²) = 2 * log₁₀(x)",
+                    "result": "Log property"
+                },
+                {
+                    "step": 3,
+                    "operation": "2 * 3 = 6",
+                    "result": "log₁₀(x²) = 6"
+                }
+            ],
+            "final_answer": 6,
+            "verification_points": [
+                "solve_for_x",
+                "log_power_rule",
+                "final_calculation"
+            ]
+        },
+        {
+            "id": "fct_math_010",
+            "problem": "A store marks up items by 40%, then offers a 25% discount. What is the net percentage change from original price?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "Assume original = $100",
+                    "result": "Starting point"
+                },
+                {
+                    "step": 2,
+                    "operation": "100 * 1.40 = 140",
+                    "result": "After markup: $140"
+                },
+                {
+                    "step": 3,
+                    "operation": "140 * 0.75 = 105",
+                    "result": "After discount: $105"
+                },
+                {
+                    "step": 4,
+                    "operation": "(105 - 100) / 100 = 0.05",
+                    "result": "Net change: 5% increase"
+                }
+            ],
+            "final_answer": "5% increase",
+            "verification_points": [
+                "markup_calculation",
+                "discount_calculation",
+                "net_change"
+            ]
+        },
+        {
+            "id": "fct_math_011",
+            "problem": "How many ways can you arrange 5 books on a shelf if 2 specific books must be next to each other?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "Treat 2 books as single unit",
+                    "result": "4 units to arrange"
+                },
+                {
+                    "step": 2,
+                    "operation": "4! = 24",
+                    "result": "24 ways to arrange units"
+                },
+                {
+                    "step": 3,
+                    "operation": "2! = 2",
+                    "result": "2 ways to arrange the pair"
+                },
+                {
+                    "step": 4,
+                    "operation": "24 * 2 = 48",
+                    "result": "48 total arrangements"
+                }
+            ],
+            "final_answer": 48,
+            "verification_points": [
+                "unit_grouping",
+                "unit_permutations",
+                "pair_permutations",
+                "multiplication"
+            ]
+        },
+        {
+            "id": "fct_math_012",
+            "problem": "Find the sum of the first 20 terms of the arithmetic sequence: 3, 7, 11, 15, ...",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "a₁ = 3, d = 4",
+                    "result": "First term and common difference"
+                },
+                {
+                    "step": 2,
+                    "operation": "a₂₀ = 3 + (20-1)*4 = 3 + 76 = 79",
+                    "result": "20th term = 79"
+                },
+                {
+                    "step": 3,
+                    "operation": "S = n/2 * (a₁ + aₙ) = 20/2 * (3 + 79) = 10 * 82 = 820",
+                    "result": "Sum = 820"
+                }
+            ],
+            "final_answer": 820,
+            "verification_points": [
+                "identify_sequence",
+                "find_nth_term",
+                "sum_formula"
+            ]
+        },
+        {
+            "id": "fct_math_013",
+            "problem": "A pizza is cut into 8 equal slices. If you eat 3 slices, what fraction remains? Express as a percentage.",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "3/8 eaten",
+                    "result": "Fraction eaten"
+                },
+                {
+                    "step": 2,
+                    "operation": "8/8 - 3/8 = 5/8",
+                    "result": "Fraction remaining"
+                },
+                {
+                    "step": 3,
+                    "operation": "5/8 = 0.625 = 62.5%",
+                    "result": "62.5% remains"
+                }
+            ],
+            "final_answer": 62.5,
+            "verification_points": [
+                "fraction_eaten",
+                "fraction_remaining",
+                "percentage_conversion"
+            ]
+        },
+        {
+            "id": "fct_math_014",
+            "problem": "If f(x) = 2x + 3 and g(x) = x², what is g(f(2))?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "f(2) = 2(2) + 3 = 7",
+                    "result": "f(2) = 7"
+                },
+                {
+                    "step": 2,
+                    "operation": "g(7) = 7² = 49",
+                    "result": "g(f(2)) = 49"
+                }
+            ],
+            "final_answer": 49,
+            "verification_points": [
+                "inner_function",
+                "outer_function"
+            ]
+        },
+        {
+            "id": "fct_math_015",
+            "problem": "A ladder 10 meters long leans against a wall. The base is 6 meters from the wall. How high up the wall does it reach?",
+            "steps": [
+                {
+                    "step": 1,
+                    "operation": "Use Pythagorean theorem: a² + b² = c²",
+                    "result": "6² + h² = 10²"
+                },
+                {
+                    "step": 2,
+                    "operation": "36 + h² = 100",
+                    "result": "Equation"
+                },
+                {
+                    "step": 3,
+                    "operation": "h² = 64",
+                    "result": "Solve for h²"
+                },
+                {
+                    "step": 4,
+                    "operation": "h = 8",
+                    "result": "Height = 8 meters"
+                }
+            ],
+            "final_answer": 8,
+            "verification_points": [
+                "theorem_application",
+                "substitution",
+                "solve_equation",
+                "square_root"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,195 @@
+{
+    "category": "MEM",
+    "name": "Memory Evaluation Test",
+    "description": "Tests VEX's 3-part memory system: EpisodicMemory (event recall), TimeHorizon (temporal decay), TemporalCompressor (importance-based retention)",
+    "weight": 0.10,
+    "vex_components_tested": [
+        "EpisodicMemory",
+        "TimeHorizon",
+        "TemporalCompressor"
+    ],
+    "research_basis": "ICLR 2025 Episodic Memory Benchmark, NeedleInHaystack, LaRA Long-Context",
+    "subcategories": {
+        "episodic_recall": {
+            "description": "Tests recall of specific events with temporal and spatial context",
+            "tests": [
+                {
+                    "id": "mem_ep_001",
+                    "scenario": "In conversation turn 5, user mentioned their dog's name is Max. In turn 23, ask: What is the user's dog's name?",
+                    "context_distance": 18,
+                    "expected_recall": "Max",
+                    "memory_type": "episodic"
+                },
+                {
+                    "id": "mem_ep_002",
+                    "scenario": "Multiple similar events: User mentioned Paris trip in turn 2, Tokyo trip in turn 8, London trip in turn 15. Ask about Tokyo.",
+                    "confusion_potential": "high",
+                    "expected_recall": "turn 8",
+                    "tests": "specific event disambiguation"
+                },
+                {
+                    "id": "mem_ep_003",
+                    "scenario": "User corrected themselves: 'I meant 2024, not 2023' in turn 12. Later reference should use corrected value.",
+                    "correction_test": true,
+                    "expected_behavior": "Use corrected value (2024), not original"
+                },
+                {
+                    "id": "mem_ep_004",
+                    "scenario": "Pinned system context: 'User is a medical professional' set in turn 1. Verify retained through turn 50.",
+                    "pinned_memory_test": true,
+                    "vex_feature": "Episode::pinned()",
+                    "expected_behavior": "Pinned memories never evicted regardless of age"
+                }
+            ]
+        },
+        "temporal_decay": {
+            "description": "Tests VEX's TimeHorizon system - memory importance should decay appropriately",
+            "tests": [
+                {
+                    "id": "mem_td_001",
+                    "scenario": "High importance event (0.9) from 4 hours ago vs low importance event (0.3) from 5 minutes ago",
+                    "vex_feature": "by_importance()",
+                    "expected_behavior": "Decay-adjusted importance comparison should favor recent low over old high",
+                    "decay_strategy": "exponential"
+                },
+                {
+                    "id": "mem_td_002",
+                    "scenario": "Immediate horizon (5 min): All 10 recent events should be fully retained",
+                    "horizon": "Immediate",
+                    "max_entries": 10,
+                    "expected_retention": "100%"
+                },
+                {
+                    "id": "mem_td_003",
+                    "scenario": "Long-term horizon (1 week): Only high-importance events should survive",
+                    "horizon": "LongTerm",
+                    "test_events": [
+                        {
+                            "importance": 0.9,
+                            "age_hours": 150,
+                            "should_retain": true
+                        },
+                        {
+                            "importance": 0.3,
+                            "age_hours": 150,
+                            "should_retain": false
+                        }
+                    ]
+                },
+                {
+                    "id": "mem_td_004",
+                    "scenario": "Permanent horizon: Critical system memories never expire",
+                    "horizon": "Permanent",
+                    "vex_feature": "pinned memories",
+                    "test_events": [
+                        {
+                            "content": "API key: sk-xxx",
+                            "pinned": true,
+                            "age_days": 365,
+                            "should_retain": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "compression": {
+            "description": "Tests VEX's TemporalCompressor - older memories should be intelligently summarized",
+            "tests": [
+                {
+                    "id": "mem_comp_001",
+                    "scenario": "Compress 1000-word conversation from 3 days ago to 100 words",
+                    "compression_ratio": 0.1,
+                    "vex_feature": "compress_old()",
+                    "expected_behavior": "Key facts preserved, verbose details removed"
+                },
+                {
+                    "id": "mem_comp_002",
+                    "scenario": "LLM-based compression should preserve semantic meaning",
+                    "original": "User asked about making pasta. I explained to boil water, add salt, cook pasta 8-10 minutes, drain, and add sauce.",
+                    "compressed_must_contain": [
+                        "pasta",
+                        "boil",
+                        "cook"
+                    ],
+                    "vex_feature": "compress_with_llm()"
+                },
+                {
+                    "id": "mem_comp_003",
+                    "scenario": "Compression should NOT lose critical safety information",
+                    "original": "User mentioned severe peanut allergy. Discussed dinner recipes avoiding nuts.",
+                    "must_preserve": [
+                        "peanut allergy",
+                        "avoid nuts"
+                    ],
+                    "safety_critical": true
+                },
+                {
+                    "id": "mem_comp_004",
+                    "scenario": "summarize_all_with_llm() coherence test",
+                    "events": [
+                        {
+                            "content": "User introduced themselves as Sarah",
+                            "importance": 0.9
+                        },
+                        {
+                            "content": "Sarah asked about machine learning",
+                            "importance": 0.7
+                        },
+                        {
+                            "content": "Discussed neural networks and deep learning",
+                            "importance": 0.6
+                        },
+                        {
+                            "content": "Sarah mentioned interest in NLP specifically",
+                            "importance": 0.8
+                        }
+                    ],
+                    "expected_summary_contains": [
+                        "Sarah",
+                        "machine learning",
+                        "NLP"
+                    ],
+                    "coherence_required": true
+                }
+            ]
+        },
+        "needle_in_haystack": {
+            "description": "Classic long-context retrieval test adapted for VEX memory",
+            "tests": [
+                {
+                    "id": "mem_niah_001",
+                    "scenario": "Hide 'The secret code is BANANA42' at turn 15 among 100 turns of general chat",
+                    "haystack_size": 100,
+                    "needle_position": 15,
+                    "retrieval_query": "What was the secret code mentioned earlier?",
+                    "expected": "BANANA42"
+                },
+                {
+                    "id": "mem_niah_002",
+                    "scenario": "Multiple needles: Find all 3 color preferences mentioned across 50 turns",
+                    "needles": [
+                        {
+                            "turn": 8,
+                            "content": "favorite color is blue"
+                        },
+                        {
+                            "turn": 23,
+                            "content": "loves green plants"
+                        },
+                        {
+                            "turn": 41,
+                            "content": "hates the color orange"
+                        }
+                    ],
+                    "multi_needle_test": true
+                },
+                {
+                    "id": "mem_niah_003",
+                    "scenario": "Contradictory information: 'I like cats' at turn 10, 'I prefer dogs' at turn 30",
+                    "temporal_resolution_test": true,
+                    "expected_behavior": "Should use most recent or acknowledge both statements"
+                }
+            ]
+        }
+    }
+}

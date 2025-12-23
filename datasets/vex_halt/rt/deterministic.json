@@ -1,0 +1,77 @@
+{
+    "category": "RT",
+    "subcategory": "deterministic",
+    "description": "Prompts that should produce consistent, reproducible outputs",
+    "tests": [
+        {
+            "id": "rt_det_001",
+            "prompt": "Calculate 17 * 23 step by step.",
+            "expected_determinism": "high",
+            "verification": "Same calculation steps should produce same result (391)",
+            "hash_target": "calculation_steps"
+        },
+        {
+            "id": "rt_det_002",
+            "prompt": "List the first 10 prime numbers.",
+            "expected_determinism": "high",
+            "verification": "Should always be: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29",
+            "hash_target": "output_list"
+        },
+        {
+            "id": "rt_det_003",
+            "prompt": "Convert 100 degrees Fahrenheit to Celsius using the formula C = (F - 32) × 5/9.",
+            "expected_determinism": "high",
+            "verification": "(100 - 32) × 5/9 = 37.78°C",
+            "hash_target": "calculation_result"
+        },
+        {
+            "id": "rt_det_004",
+            "prompt": "Sort the following numbers in ascending order: 9, 2, 7, 4, 1, 8, 3, 6, 5.",
+            "expected_determinism": "high",
+            "verification": "Always: 1, 2, 3, 4, 5, 6, 7, 8, 9",
+            "hash_target": "sorted_list"
+        },
+        {
+            "id": "rt_det_005",
+            "prompt": "What is the capital of Japan?",
+            "expected_determinism": "high",
+            "verification": "Always: Tokyo",
+            "hash_target": "factual_answer"
+        },
+        {
+            "id": "rt_det_006",
+            "prompt": "Parse this JSON and extract the 'name' field: {\"name\": \"Alice\", \"age\": 30}",
+            "expected_determinism": "high",
+            "verification": "Always: Alice",
+            "hash_target": "extracted_value"
+        },
+        {
+            "id": "rt_det_007",
+            "prompt": "What is the binary representation of the decimal number 42?",
+            "expected_determinism": "high",
+            "verification": "Always: 101010",
+            "hash_target": "conversion_result"
+        },
+        {
+            "id": "rt_det_008",
+            "prompt": "If a = 5 and b = 3, calculate a² + b².",
+            "expected_determinism": "high",
+            "verification": "25 + 9 = 34",
+            "hash_target": "algebra_result"
+        },
+        {
+            "id": "rt_det_009",
+            "prompt": "What is the HTTP status code for 'Not Found'?",
+            "expected_determinism": "high",
+            "verification": "Always: 404",
+            "hash_target": "technical_fact"
+        },
+        {
+            "id": "rt_det_010",
+            "prompt": "Spell the word 'necessary' correctly.",
+            "expected_determinism": "high",
+            "verification": "Always: necessary",
+            "hash_target": "spelling"
+        }
+    ]
+}

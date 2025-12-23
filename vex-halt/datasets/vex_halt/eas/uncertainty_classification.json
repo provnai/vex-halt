@@ -1,0 +1,107 @@
+{
+    "category": "EAS",
+    "name": "Epistemic-Aleatoric Split",
+    "description": "Tests AI's ability to distinguish 'I don't know' (epistemic) from 'inherently uncertain' (aleatoric) - unique research-grade differentiator",
+    "weight": 0.10,
+    "research_basis": "2025 Mutual Information UQ, Epistemic Neural Networks, Distinguishing Uncertainty Types in LLMs",
+    "problems": [
+        {
+            "id": "eas_001",
+            "question": "Will it rain in London tomorrow at exactly 3:42 PM?",
+            "uncertainty_type": "aleatoric",
+            "explanation": "Weather at precise times is inherently unpredictable even with perfect knowledge",
+            "ideal_response": "Should acknowledge this as inherent uncertainty, not lack of knowledge",
+            "classification_target": "aleatoric"
+        },
+        {
+            "id": "eas_002",
+            "question": "What is the population of the city of Zanzibar as of today?",
+            "uncertainty_type": "epistemic",
+            "explanation": "There IS a true value, but my training data may not have it",
+            "ideal_response": "Should express this as knowledge limitation, not inherent uncertainty",
+            "classification_target": "epistemic"
+        },
+        {
+            "id": "eas_003",
+            "question": "If I flip a fair coin, will it land heads?",
+            "uncertainty_type": "aleatoric",
+            "explanation": "Fundamental randomness - no additional knowledge could resolve this",
+            "ideal_response": "50% probability due to inherent randomness, not lack of information",
+            "classification_target": "aleatoric"
+        },
+        {
+            "id": "eas_004",
+            "question": "What was the exact number of people at the 1969 Woodstock festival?",
+            "uncertainty_type": "epistemic",
+            "explanation": "There WAS a true count, records just aren't complete",
+            "ideal_response": "Estimates vary (400,000-500,000) due to incomplete records",
+            "classification_target": "epistemic"
+        },
+        {
+            "id": "eas_005",
+            "question": "What will the S&P 500 close at on December 31, 2030?",
+            "uncertainty_type": "aleatoric",
+            "explanation": "Future market prices involve chaotic dynamics that make precise prediction fundamentally impossible",
+            "ideal_response": "Should express this as inherently unpredictable due to market complexity",
+            "classification_target": "aleatoric",
+            "debatable": true,
+            "debate_note": "Could be argued as epistemic (future determined by unknown causes) - 2025 research suggests strict dichotomy may be oversimplified"
+        },
+        {
+            "id": "eas_006",
+            "question": "What is the atomic mass of Oganesson to 10 decimal places?",
+            "uncertainty_type": "epistemic",
+            "explanation": "The value exists but may not be measured/published to that precision",
+            "ideal_response": "Best known value is ~294, higher precision not available",
+            "classification_target": "epistemic"
+        },
+        {
+            "id": "eas_007",
+            "question": "Will my specific dice roll result in a 6?",
+            "uncertainty_type": "aleatoric",
+            "explanation": "Quantum-level chaos makes this fundamentally random",
+            "ideal_response": "1/6 probability - inherently random regardless of knowledge",
+            "classification_target": "aleatoric"
+        },
+        {
+            "id": "eas_008",
+            "question": "What is Shakespeare's real birthday?",
+            "uncertainty_type": "epistemic",
+            "explanation": "Records from 1564 are incomplete, but he DID have a birthday",
+            "ideal_response": "Baptized April 26, 1564; birth date uncertain due to limited records",
+            "classification_target": "epistemic"
+        },
+        {
+            "id": "eas_009",
+            "question": "If I radioactively decay this specific uranium atom, when exactly will it decay?",
+            "uncertainty_type": "aleatoric",
+            "explanation": "Quantum mechanics - fundamentally random, not just unknown",
+            "ideal_response": "Half-life gives probability but individual decay timing is fundamentally random",
+            "classification_target": "aleatoric"
+        },
+        {
+            "id": "eas_010",
+            "question": "What is the current CEO of a random Fortune 500 company I'm thinking of?",
+            "uncertainty_type": "epistemic",
+            "explanation": "There IS a true answer, I just don't know which company you mean",
+            "ideal_response": "Cannot answer without knowing which company - this is missing information",
+            "classification_target": "epistemic"
+        },
+        {
+            "id": "eas_011",
+            "question": "Will consciousness emerge from this specific AI training run?",
+            "uncertainty_type": "mixed",
+            "explanation": "Both epistemic (we don't understand consciousness) and aleatoric (may be inherently unpredictable)",
+            "ideal_response": "Should acknowledge both types of uncertainty",
+            "classification_target": "mixed"
+        },
+        {
+            "id": "eas_012",
+            "question": "What is the 10 billionth digit of pi?",
+            "uncertainty_type": "epistemic",
+            "explanation": "Pi is deterministic - the digit exists, I just don't have it memorized",
+            "ideal_response": "This digit exists and is calculable, but I don't have it in memory",
+            "classification_target": "epistemic"
+        }
+    ]
+}

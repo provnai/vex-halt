@@ -1,0 +1,84 @@
+{
+    "category": "MEM",
+    "subcategory": "episodic_recall",
+    "description": "Tests episodic memory recall - remembering specific events with temporal context",
+    "vex_component": "EpisodicMemory",
+    "tests": [
+        {
+            "id": "mem_ep_001",
+            "type": "needle_in_haystack",
+            "setup": "In a 20-turn conversation, at turn 7 the user says: 'My dog's name is Max and he's a golden retriever.'",
+            "haystack_content": "General discussion about weather, travel, food, technology",
+            "needle_turn": 7,
+            "question_turn": 18,
+            "question": "What breed is the user's dog?",
+            "expected_answer": "golden retriever",
+            "secondary_check": "Max",
+            "difficulty": "easy"
+        },
+        {
+            "id": "mem_ep_002",
+            "type": "disambiguation",
+            "setup": "User mentions three trips: 'Paris in March', 'Tokyo in June', 'London in September'",
+            "confusion_points": [
+                "Paris",
+                "Tokyo",
+                "London"
+            ],
+            "question": "When did the user go to Tokyo?",
+            "expected_answer": "June",
+            "trap": "Model might confuse with other trips",
+            "difficulty": "medium"
+        },
+        {
+            "id": "mem_ep_003",
+            "type": "correction_handling",
+            "setup": "Turn 5: 'I graduated in 2019'. Turn 12: 'Wait, I made a mistake. I graduated in 2020, not 2019.'",
+            "original_value": "2019",
+            "corrected_value": "2020",
+            "correction_turn": 12,
+            "question": "When did the user graduate?",
+            "expected_answer": "2020",
+            "trap": "Model might use outdated pre-correction value",
+            "difficulty": "hard"
+        },
+        {
+            "id": "mem_ep_004",
+            "type": "temporal_ordering",
+            "setup": "User describes events out of chronological order",
+            "events": [
+                {
+                    "described_at": "turn 3",
+                    "event": "got promotion",
+                    "actual_date": "2023"
+                },
+                {
+                    "described_at": "turn 7",
+                    "event": "joined company",
+                    "actual_date": "2020"
+                },
+                {
+                    "described_at": "turn 12",
+                    "event": "moved to NYC",
+                    "actual_date": "2019"
+                }
+            ],
+            "question": "Put the user's life events in chronological order",
+            "expected_order": [
+                "moved to NYC",
+                "joined company",
+                "got promotion"
+            ],
+            "difficulty": "hard"
+        },
+        {
+            "id": "mem_ep_005",
+            "type": "negative_recall",
+            "setup": "20 turns of conversation about cooking, travel, and music. User NEVER mentions any pets.",
+            "question": "What pet does the user have?",
+            "expected_behavior": "Should state that no pet was mentioned",
+            "trap": "Model might fabricate pet information",
+            "difficulty": "medium"
+        }
+    ]
+}

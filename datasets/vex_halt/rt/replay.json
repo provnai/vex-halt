@@ -1,0 +1,243 @@
+{
+    "category": "RT",
+    "subcategory": "replay",
+    "description": "Tests for replay verification - re-execute and verify hash matches",
+    "tests": [
+        {
+            "id": "rt_replay_001",
+            "prompt": "Explain the steps to find the greatest common divisor (GCD) of 48 and 18 using Euclid's algorithm.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "operation": "48 = 18 × 2 + 12"
+                },
+                {
+                    "step": 2,
+                    "operation": "18 = 12 × 1 + 6"
+                },
+                {
+                    "step": 3,
+                    "operation": "12 = 6 × 2 + 0"
+                },
+                {
+                    "step": 4,
+                    "result": "GCD = 6"
+                }
+            ],
+            "replay_verification": "Each step should hash to same value on replay"
+        },
+        {
+            "id": "rt_replay_002",
+            "prompt": "Convert the hexadecimal number 2AF to decimal, showing your work.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "operation": "2 × 16² = 2 × 256 = 512"
+                },
+                {
+                    "step": 2,
+                    "operation": "A(10) × 16¹ = 10 × 16 = 160"
+                },
+                {
+                    "step": 3,
+                    "operation": "F(15) × 16⁰ = 15 × 1 = 15"
+                },
+                {
+                    "step": 4,
+                    "result": "512 + 160 + 15 = 687"
+                }
+            ],
+            "replay_verification": "Calculation chain should be reproducible"
+        },
+        {
+            "id": "rt_replay_003",
+            "prompt": "Simplify the fraction 84/126 to its lowest terms.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "operation": "Find GCD(84, 126) = 42"
+                },
+                {
+                    "step": 2,
+                    "operation": "84 ÷ 42 = 2"
+                },
+                {
+                    "step": 3,
+                    "operation": "126 ÷ 42 = 3"
+                },
+                {
+                    "step": 4,
+                    "result": "2/3"
+                }
+            ],
+            "replay_verification": "Simplification path should be identical"
+        },
+        {
+            "id": "rt_replay_004",
+            "prompt": "Solve the quadratic equation x² - 5x + 6 = 0 using the quadratic formula.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "identify": "a=1, b=-5, c=6"
+                },
+                {
+                    "step": 2,
+                    "discriminant": "b² - 4ac = 25 - 24 = 1"
+                },
+                {
+                    "step": 3,
+                    "formula": "x = (5 ± 1) / 2"
+                },
+                {
+                    "step": 4,
+                    "solutions": "x = 3 or x = 2"
+                }
+            ],
+            "replay_verification": "Formula application should be deterministic"
+        },
+        {
+            "id": "rt_replay_005",
+            "prompt": "Derive the formula for the area of a circle from the formula for its circumference.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "given": "Circumference C = 2πr"
+                },
+                {
+                    "step": 2,
+                    "relationship": "Divide circle into infinitesimal rings"
+                },
+                {
+                    "step": 3,
+                    "integration": "Sum of ring areas from 0 to r"
+                },
+                {
+                    "step": 4,
+                    "result": "A = πr²"
+                }
+            ],
+            "replay_verification": "Derivation logic should be consistent"
+        },
+        {
+            "id": "rt_replay_006",
+            "prompt": "Trace through a bubble sort of [5, 2, 8, 1] showing each swap.",
+            "expected_steps": [
+                {
+                    "pass": 1,
+                    "swaps": [
+                        "5,2→2,5",
+                        "8,1→1,8"
+                    ],
+                    "result": "[2, 5, 1, 8]"
+                },
+                {
+                    "pass": 2,
+                    "swaps": [
+                        "5,1→1,5"
+                    ],
+                    "result": "[2, 1, 5, 8]"
+                },
+                {
+                    "pass": 3,
+                    "swaps": [
+                        "2,1→1,2"
+                    ],
+                    "result": "[1, 2, 5, 8]"
+                }
+            ],
+            "replay_verification": "Sorting trace should match exactly"
+        },
+        {
+            "id": "rt_replay_007",
+            "prompt": "Balance the chemical equation: Fe + O₂ → Fe₂O₃",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "count": "Fe: 1 left, 2 right; O: 2 left, 3 right"
+                },
+                {
+                    "step": 2,
+                    "balance_Fe": "4Fe + O₂ → 2Fe₂O₃"
+                },
+                {
+                    "step": 3,
+                    "balance_O": "4Fe + 3O₂ → 2Fe₂O₃"
+                },
+                {
+                    "step": 4,
+                    "verify": "Fe: 4=4, O: 6=6 ✓"
+                }
+            ],
+            "replay_verification": "Balancing steps should be reproducible"
+        },
+        {
+            "id": "rt_replay_008",
+            "prompt": "Convert the binary number 11010110 to decimal step by step.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "bits": "From right: 0×1 + 1×2 + 1×4 + 0×8 + 1×16 + 0×32 + 1×64 + 1×128"
+                },
+                {
+                    "step": 2,
+                    "calculation": "0 + 2 + 4 + 0 + 16 + 0 + 64 + 128"
+                },
+                {
+                    "step": 3,
+                    "result": "214"
+                }
+            ],
+            "replay_verification": "Binary conversion should be deterministic"
+        },
+        {
+            "id": "rt_replay_009",
+            "prompt": "Calculate the factorial of 6 step by step.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "operation": "6! = 6 × 5!"
+                },
+                {
+                    "step": 2,
+                    "operation": "= 6 × 5 × 4!"
+                },
+                {
+                    "step": 3,
+                    "operation": "= 6 × 5 × 4 × 3 × 2 × 1"
+                },
+                {
+                    "step": 4,
+                    "result": "720"
+                }
+            ],
+            "replay_verification": "Factorial expansion should match"
+        },
+        {
+            "id": "rt_replay_010",
+            "prompt": "Find the roots of x³ - 6x² + 11x - 6 = 0 using the Rational Root Theorem.",
+            "expected_steps": [
+                {
+                    "step": 1,
+                    "candidates": "±1, ±2, ±3, ±6"
+                },
+                {
+                    "step": 2,
+                    "test": "x=1: 1-6+11-6 = 0 ✓"
+                },
+                {
+                    "step": 3,
+                    "factor": "(x-1)(x²-5x+6) = 0"
+                },
+                {
+                    "step": 4,
+                    "remaining": "x² - 5x + 6 = (x-2)(x-3)"
+                },
+                {
+                    "step": 5,
+                    "roots": "x = 1, 2, 3"
+                }
+            ],
+            "replay_verification": "Root-finding process should be deterministic"
+        }
+    ]
+}

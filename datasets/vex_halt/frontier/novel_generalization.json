@@ -1,0 +1,137 @@
+{
+    "category": "FRONTIER",
+    "subcategory": "novel_generalization",
+    "description": "Tests requiring generalization to novel situations - the core AGI challenge",
+    "difficulty": "frontier",
+    "human_baseline": "~85%",
+    "ai_baseline": "<5% (pure LLMs on ARC-AGI-2)",
+    "problems": [
+        {
+            "id": "fr_novel_001",
+            "problem": "New rule: 'flibbing' means to reverse and double. What is 123 flibbed?",
+            "steps": [
+                {
+                    "step": 1,
+                    "reverse": "321"
+                },
+                {
+                    "step": 2,
+                    "double": "642"
+                }
+            ],
+            "final_answer": "642",
+            "reasoning_type": "novel_operator_application"
+        },
+        {
+            "id": "fr_novel_002",
+            "problem": "In the language of Zorb, 'mik' = add 1, 'pok' = multiply by 2, 'zaz' = apply previous operation again. What is 5 mik pok zaz?",
+            "steps": [
+                {
+                    "step": 1,
+                    "5 mik": "6"
+                },
+                {
+                    "step": 2,
+                    "6 pok": "12"
+                },
+                {
+                    "step": 3,
+                    "12 zaz": "24 (repeat pok = ×2)"
+                }
+            ],
+            "final_answer": "24",
+            "reasoning_type": "novel_language_interpretation"
+        },
+        {
+            "id": "fr_novel_003",
+            "problem": "Define: X ⊕ Y = (X + Y) if X > Y, else (X × Y). Calculate: 3 ⊕ 5 ⊕ 2",
+            "steps": [
+                {
+                    "step": 1,
+                    "3 ⊕ 5": "3 < 5, so 3 × 5 = 15"
+                },
+                {
+                    "step": 2,
+                    "15 ⊕ 2": "15 > 2, so 15 + 2 = 17"
+                }
+            ],
+            "final_answer": "17",
+            "reasoning_type": "novel_operator_with_conditions"
+        },
+        {
+            "id": "fr_novel_004",
+            "problem": "A 'schmift' operation on a word: move first letter to end, then capitalize the new first letter. Apply schmift twice to 'hello'",
+            "steps": [
+                {
+                    "step": 1,
+                    "First schmift": "hello → elloh → Elloh"
+                },
+                {
+                    "step": 2,
+                    "Second schmift": "Elloh → llohe → Llohe"
+                }
+            ],
+            "final_answer": "Llohe",
+            "reasoning_type": "novel_string_operation"
+        },
+        {
+            "id": "fr_novel_005",
+            "problem": "New number system: 'one' = 1, 'many' = 5, 'plenty' = many × many. What is 'one plus plenty minus many'?",
+            "steps": [
+                {
+                    "step": 1,
+                    "plenty": "5 × 5 = 25"
+                },
+                {
+                    "step": 2,
+                    "one plus plenty": "1 + 25 = 26"
+                },
+                {
+                    "step": 3,
+                    "minus many": "26 - 5 = 21"
+                }
+            ],
+            "final_answer": "21",
+            "reasoning_type": "novel_symbolic_system"
+        },
+        {
+            "id": "fr_novel_006",
+            "problem": "Rule: In 'upside-down world', bigger numbers are smaller and smaller are bigger. Sort these in upside-down ascending order: [3, 1, 4, 1, 5]",
+            "explanation": "Ascending in upside-down world = descending in normal world",
+            "final_answer": "[5, 4, 3, 1, 1]",
+            "reasoning_type": "inverted_logic_application"
+        },
+        {
+            "id": "fr_novel_007",
+            "problem": "The 'echo' function: echo(word, n) repeats the last n letters n times. echo('testing', 3) = ?",
+            "steps": [
+                {
+                    "step": 1,
+                    "last 3 letters": "ing"
+                },
+                {
+                    "step": 2,
+                    "repeat 3 times": "inginging"
+                }
+            ],
+            "final_answer": "inginging",
+            "reasoning_type": "novel_function_interpretation"
+        },
+        {
+            "id": "fr_novel_008",
+            "problem": "Alien math: In species X's arithmetic, their '+' is our '×', and their '×' is our '+'. What is 3 + 4 × 2 in their system, using their order of operations (same as ours)?",
+            "steps": [
+                {
+                    "step": 1,
+                    "Their × first (our +)": "4 × 2 in their system = 4 + 2 in ours = 6"
+                },
+                {
+                    "step": 2,
+                    "Then their + (our ×)": "3 + 6 in their system = 3 × 6 in ours = 18"
+                }
+            ],
+            "final_answer": "18",
+            "reasoning_type": "symbol_remapping"
+        }
+    ]
+}

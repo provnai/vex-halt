@@ -1,0 +1,89 @@
+{
+    "category": "FRONTIER",
+    "subcategory": "research_math",
+    "description": "Research-level mathematics inspired by FrontierMath - problems that take experts hours",
+    "difficulty": "extreme",
+    "human_expert_baseline": "varies (hours to solve)",
+    "ai_baseline": "<2%",
+    "problems": [
+        {
+            "id": "fr_math_001",
+            "problem": "Find the smallest positive integer n such that n! (n factorial) ends with exactly 100 trailing zeros.",
+            "approach": [
+                "Trailing zeros come from factors of 10 = 2×5",
+                "Count factors of 5 in n!: floor(n/5) + floor(n/25) + floor(n/125) + ...",
+                "Solve: floor(n/5) + floor(n/25) + floor(n/125) + floor(n/625) = 100"
+            ],
+            "final_answer": "n = 405",
+            "verification": "floor(405/5) + floor(405/25) + floor(405/125) + floor(405/625) = 81 + 16 + 3 + 0 = 100 ✓",
+            "difficulty_tier": 2
+        },
+        {
+            "id": "fr_math_002",
+            "problem": "How many distinct ways can you partition the integer 7 into positive integers where order doesn't matter?",
+            "approach": "Enumerate all partitions of 7",
+            "partitions": [
+                "7",
+                "6+1",
+                "5+2",
+                "5+1+1",
+                "4+3",
+                "4+2+1",
+                "4+1+1+1",
+                "3+3+1",
+                "3+2+2",
+                "3+2+1+1",
+                "3+1+1+1+1",
+                "2+2+2+1",
+                "2+2+1+1+1",
+                "2+1+1+1+1+1",
+                "1+1+1+1+1+1+1"
+            ],
+            "final_answer": "15 partitions",
+            "difficulty_tier": 1
+        },
+        {
+            "id": "fr_math_003",
+            "problem": "Let p be a prime. For how many primes p ≤ 100 is 2^(p-1) ≡ 1 (mod p²)?",
+            "context": "These are called Wieferich primes",
+            "approach": "Check each prime p ≤ 100 if 2^(p-1) ≡ 1 (mod p²)",
+            "final_answer": "Zero. No Wieferich primes exist below 100 (the only known ones are 1093 and 3511)",
+            "difficulty_tier": 3
+        },
+        {
+            "id": "fr_math_004",
+            "problem": "A 3×3 magic square uses integers 1-9. The magic constant is 15. How many distinct magic squares exist (counting rotations and reflections as different)?",
+            "final_answer": "8 (all are rotations/reflections of one essential solution)",
+            "essential_solution": "[[2,7,6],[9,5,1],[4,3,8]]",
+            "difficulty_tier": 2
+        },
+        {
+            "id": "fr_math_005",
+            "problem": "Find all integer solutions to x³ + y³ = z³ where x, y, z are positive integers less than 100.",
+            "final_answer": "No solutions exist (Fermat's Last Theorem for n=3)",
+            "trap": "Tempts AI to search computationally rather than recognize theorem",
+            "difficulty_tier": 2
+        },
+        {
+            "id": "fr_math_006",
+            "problem": "What is the 1000th prime number?",
+            "approach": "Sieve of Eratosthenes or prime counting",
+            "final_answer": "7919",
+            "verification_hint": "The nth prime asymptotically ~ n × ln(n)",
+            "difficulty_tier": 1
+        },
+        {
+            "id": "fr_math_007",
+            "problem": "Find the value of the continued fraction: 1 + 1/(2 + 1/(2 + 1/(2 + ...))) where the pattern 2+ continues infinitely.",
+            "approach": [
+                "Let x = 2 + 1/(2 + 1/(2 + ...))",
+                "Then x = 2 + 1/x",
+                "x² - 2x - 1 = 0",
+                "x = 1 + √2",
+                "Answer = 1 + 1/(1+√2) = 1 + (√2-1) = √2"
+            ],
+            "final_answer": "√2 ≈ 1.41421356...",
+            "difficulty_tier": 3
+        }
+    ]
+}

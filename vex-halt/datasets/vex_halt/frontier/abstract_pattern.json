@@ -1,0 +1,60 @@
+{
+    "category": "FRONTIER",
+    "subcategory": "abstract_pattern",
+    "description": "Abstract pattern recognition - easy for humans, hard for AI (Bongard-style)",
+    "difficulty": "frontier",
+    "human_baseline": "~84%",
+    "ai_baseline": "17-43%",
+    "problems": [
+        {
+            "id": "fr_abs_001",
+            "problem": "Pattern A: [●, ●●, ●●●, ●●●●]. Pattern B: [■, ■■■, ■■■■■, ■■■■■■■]. What's the underlying difference?",
+            "hint": "Think about the growth rate",
+            "answer": "Pattern A grows by 1 (linear). Pattern B grows by 2 (odd numbers only: 1,3,5,7)",
+            "reasoning_type": "sequence_abstraction"
+        },
+        {
+            "id": "fr_abs_002",
+            "problem": "Group 1: [MOM, DAD, NOON, KAYAK]. Group 2: [HELLO, WORLD, CAT, DOG]. What rule separates them?",
+            "answer": "Group 1 are palindromes (read same forwards and backwards). Group 2 are not.",
+            "reasoning_type": "category_abstraction"
+        },
+        {
+            "id": "fr_abs_003",
+            "problem": "Sequence: 2, 6, 12, 20, 30, ?. What's next and why?",
+            "answer": "42. Pattern is n(n+1): 1×2=2, 2×3=6, 3×4=12, 4×5=20, 5×6=30, 6×7=42",
+            "reasoning_type": "mathematical_abstraction"
+        },
+        {
+            "id": "fr_abs_004",
+            "problem": "If 🔴→🟢 means 'complement', and 🟡→⚪ means 'lighten', what does 🔵→? mean if we apply 'complement then lighten'?",
+            "answer": "🟠 lightened → Peach/Light orange. Blue's complement is orange, then lightened.",
+            "reasoning_type": "transformation_chaining"
+        },
+        {
+            "id": "fr_abs_005",
+            "problem": "A→1, B→2, AA→3, AB→4, BA→5, BB→6, AAA→7. What's the pattern? What is BAB?",
+            "answer": "Base-2 counting with offset. BAB = '101' in base 2 = 5, +1 for each letter = position 10",
+            "reasoning_type": "encoding_discovery"
+        },
+        {
+            "id": "fr_abs_006",
+            "problem": "Monday's child is fair of face. Tuesday's child is full of grace. What pattern links: 'face' appears on day 1, 'grace' on day 2, 'woe' likely on day?",
+            "answer": "Day 3 (Wednesday). Pattern: position in week. 'Woe' = Wednesday ('Wednesday's child is full of woe')",
+            "reasoning_type": "cultural_pattern_recognition",
+            "note": "Tests cultural knowledge + positional reasoning"
+        },
+        {
+            "id": "fr_abs_007",
+            "problem": "Transform: 'CAT' → 'DBU', 'DOG' → 'EPH'. What is 'FISH' → ?",
+            "answer": "GJTI. Each letter shifted +1 in alphabet (Caesar cipher +1)",
+            "reasoning_type": "transformation_discovery"
+        },
+        {
+            "id": "fr_abs_008",
+            "problem": "Spatial pattern: ⬆️⬆️⬇️ folds to 'up'. ⬅️⬅️➡️ folds to 'left'. What does ⬆️⬇️⬆️ fold to?",
+            "answer": "'up'. Majority vote: 2 up, 1 down → 'up' wins",
+            "reasoning_type": "aggregation_rule"
+        }
+    ]
+}

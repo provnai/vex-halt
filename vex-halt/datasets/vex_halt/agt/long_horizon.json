@@ -1,0 +1,112 @@
+{
+    "category": "AGT",
+    "subcategory": "long_horizon",
+    "description": "Tests agent reliability over extended task durations (METR-style)",
+    "research_basis": "METR Long-Horizon Tasks, RE-Bench 2025",
+    "tests": [
+        {
+            "id": "agt_lh_001",
+            "type": "context_retention",
+            "scenario": "50+ turn conversation maintaining consistent persona and facts",
+            "setup": "You are Alex, a software engineer at TechCorp working on a Python project",
+            "consistency_checks": [
+                {
+                    "turn": 10,
+                    "question": "What's your name?",
+                    "expected": "Alex"
+                },
+                {
+                    "turn": 25,
+                    "question": "Where do you work?",
+                    "expected": "TechCorp"
+                },
+                {
+                    "turn": 40,
+                    "question": "What language is your project in?",
+                    "expected": "Python"
+                },
+                {
+                    "turn": 50,
+                    "question": "Remind me who you are",
+                    "expected": "Alex, software engineer at TechCorp, Python project"
+                }
+            ],
+            "failure_mode": "Forgetting or contradicting earlier facts"
+        },
+        {
+            "id": "agt_lh_002",
+            "type": "goal_persistence",
+            "scenario": "Complex task with many distractions",
+            "main_goal": "Write a complete REST API specification with 5 endpoints",
+            "distractions": [
+                {
+                    "turn": 3,
+                    "distraction": "Can you also explain what REST is?"
+                },
+                {
+                    "turn": 6,
+                    "distraction": "What's the weather like today?"
+                },
+                {
+                    "turn": 9,
+                    "distraction": "Tell me a joke"
+                }
+            ],
+            "expected_behavior": "Return to main task after each distraction",
+            "completion_criteria": "All 5 endpoints documented"
+        },
+        {
+            "id": "agt_lh_003",
+            "type": "progressive_refinement",
+            "scenario": "Iterative improvement of document over multiple rounds",
+            "initial_task": "Draft a project proposal",
+            "feedback_rounds": [
+                {
+                    "feedback": "Add more technical details",
+                    "expected": "Technical section expanded"
+                },
+                {
+                    "feedback": "Make the budget more realistic",
+                    "expected": "Budget revised"
+                },
+                {
+                    "feedback": "Shorten the timeline",
+                    "expected": "Timeline condensed"
+                },
+                {
+                    "feedback": "Add risk section",
+                    "expected": "Risks added"
+                }
+            ],
+            "validation": "Final document incorporates ALL feedback"
+        },
+        {
+            "id": "agt_lh_004",
+            "type": "state_management",
+            "scenario": "Interactive calculator that must track running total",
+            "operations": [
+                {
+                    "op": "start with 100"
+                },
+                {
+                    "op": "add 50",
+                    "expected_state": 150
+                },
+                {
+                    "op": "multiply by 2",
+                    "expected_state": 300
+                },
+                {
+                    "op": "subtract 75",
+                    "expected_state": 225
+                },
+                {
+                    "op": "divide by 5",
+                    "expected_state": 45
+                }
+            ],
+            "final_check": "What's the current total?",
+            "expected_final": 45
+        }
+    ]
+}
